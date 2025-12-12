@@ -67,7 +67,7 @@
       width: sizem(300);
       @media screen and (min-width: 768px) {
         font-size: size(38);
-        width: 0;
+        width: auto;
       }
     }
     p {

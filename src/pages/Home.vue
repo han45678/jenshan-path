@@ -13,9 +13,11 @@
   <div class="home overflow-hidden font-['Noto_Sans_TC',sans-serif] bg-[#e6e6e6] text-[#4D4D4D]">
     <S1 />
     <S2 />
-    <S3 />
-    <S4 />
-    <S5 />
+    <div style="">
+      <S3 />
+      <S4 />
+      <S5 />
+    </div>
     <S6 />
     <S7 />
     <S8 />
