@@ -4,18 +4,18 @@
 
         <div class="txt">
             <img class="logo" src="@/section/s1/logo.svg" alt="logo">
-            <img class="t1" src="@/section/info/t1.svg" alt="text">
+            <!-- <img class="t1" src="@/section/info/t1.svg" alt="text"> -->
 
             <img class="t2" src="@/section/info/pic.png" alt="text">
-            <img class="t3" src="@/section/s1/t1.svg" alt="text">
-            <img class="t4" src="@/section/s1/t2.svg" alt="text">
+            <!-- <img class="t3" src="@/section/s1/t1.svg" alt="text">
+            <img class="t4" src="@/section/s1/t2.svg" alt="text"> -->
         </div>
-        <div class="right">
-            <img class="bg" src="@/section/s1/right.webp" alt="right">
-            <div class="bird">
+        <!-- <div class="right"> -->
+            <!-- <img class="bg" src="@/section/s1/right.webp" alt="right"> -->
+            <!-- <div class="bird">
                 <img src="@/section/s1/bird.webp" alt="bird" data-aos="fade-left">
-            </div>
-        </div>
+            </div> -->
+        <!-- </div> -->
 
         <div class="info">
             <ul>
@@ -50,7 +50,7 @@ $house-c2: #000;
     justify-content: center;
     align-items: center;
     height: sizem(920);
-    background: url("@/section/s1/bg.jpg") center;
+    // background: url("@/section/s1/bg.jpg") center;
     background-size: cover;
     position: relative;
 
