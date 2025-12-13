@@ -9,6 +9,11 @@ import 'swiper/css/pagination';
 
 <template>
   <article class="s3">
+    <img
+      class="decorate"
+      src="./s3/decorate.png"
+      alt="decorate"
+    />
     <div class="wrapper">
       <div class="title block md:hidden">
         <h3 class="font-['Gill Sans',serif]">Civic Axis</h3>
@@ -89,16 +94,28 @@ import 'swiper/css/pagination';
 
 .s3 {
   position: relative;
+  .decorate {
+    position: absolute;
+    @media screen and (min-width: 768px) {
+      width: size(455);
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+  }
   .wrapper {
     width: 100%;
     color: #fff;
     padding: sizem(60) 0 sizem(40) 0;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
     @media screen and (min-width: 768px) {
       padding: size(270) size(120) size(120) size(165);
       display: flex;
       gap: size(85);
     }
+
     .title {
       padding-left: sizem(20);
       padding-right: sizem(20);

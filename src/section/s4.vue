@@ -1,227 +1,221 @@
+<script setup>
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Navigation, Pagination, Autoplay } from 'swiper';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+</script>
+
 <template>
   <article class="s4">
-    <div class="pic">
-      <img src="./s4/pic.jpg" alt="pic">
-    </div>
     <div class="text">
-      <div class="bg">
-        <img src="./s4/line.svg" alt="bg" v-if="!isMobile" />
-        <img src="./s4/line_m.svg" alt="bg" v-else>
+      <h3 class="font-['Gill Sans',serif]">Stylish</h3>
+      <h2 class="font-['Noto_Serif_TC',serif]">時尚光影的生活軸帶</h2>
+      <p class="hidden md:block font-['Noto_Serif_TC',serif]">
+        新光三越、大遠百雙百貨環伺，繁華與品味於步行之間流轉，日常的午後，是隨興的精品漫遊。<br />
+        生活的每個瞬間，都是自然而然的精緻篇章。<br />
+        繁華近在咫尺，卻始終保有恬靜的生活韻度
+      </p>
+    </div>
+    <div class="pic">
+      <div class="right">
+        <img
+          src="./s4/pic03.jpg"
+          alt="pic"
+        />
+        <div class="caption font-['Noto_Serif_TC',serif]">情境示意圖</div>
       </div>
-      <div class="text-content font-['Noto_Serif_TC',serif]" data-aos="fade-up">
-        <div class="item">
-          <h3>安和大道</h3>
-          <p>核心居域享繁華</p>
-        </div>
-        <div class="item">
-          <h3>輕鬆成家</h3>
-          <p>市心甜蜜<span>2</span>字頭</p>
-        </div>
-        <div class="item">
-          <h3>直抵南科</h3>
-          <p><span>5</span>分鐘北外環道</p>
-        </div>
-        <div class="item">
-          <h3>學習贏家</h3>
-          <p>住近資優文教區</p>
-        </div>
-        <div class="item">
-          <h3>書香社區</h3>
-          <p>日系書屋選冊宅</p>
-        </div>
+
+      <div class="left">
+        <Swiper
+          :modules="[Navigation, Pagination, Autoplay]"
+          :loop="true"
+          :autoplay="{ delay: 3000 }"
+        >
+          <SwiperSlide>
+            <img
+              src="./s4/pic01.jpg"
+              alt="bg"
+            />
+            <div class="caption font-['Noto_Serif_TC',serif]">情境示意圖</div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              src="./s4/pic02.jpg"
+              alt="bg"
+            />
+            <div class="caption font-['Noto_Serif_TC',serif]">情境示意圖</div>
+          </SwiperSlide>
+        </Swiper>
       </div>
     </div>
+    <p class="block md:hidden font-['Noto_Serif_TC',serif]">
+      新光三越、大遠百雙百貨環伺，繁華與品味於步行之間流轉，日常的午後，是隨興的精品漫遊。<br />
+      生活的每個瞬間，都是自然而然的精緻篇章。<br />
+      繁華近在咫尺，卻始終保有恬靜的生活韻度
+    </p>
+    <div class="slogan font-['Gill Sans',serif]">
+      A lifestyle where fashion meets light and shadow
+    </div>
+
+    <img
+      class="decorate"
+      src="./s4/decorate.png"
+      alt="decorate"
+    />
   </article>
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/style/function.scss";
+@import '@/assets/style/function.scss';
 
 .s4 {
   position: relative;
 
-  .pic {
-    position: relative;
-
-    @media screen and (max-width: 767px) {
-      padding-bottom: sizem(95);
-
+  .text {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: sizem(35);
+    padding-left: sizem(35);
+    padding-right: sizem(35);
+    @media screen and (min-width: 768px) {
+      text-align: center;
+      padding-bottom: size(50);
+      max-width: size(775);
+      padding-left: 0;
+      padding-right: 0;
     }
+  }
+  h3 {
+    color: #b8984a;
+    font-weight: 400;
+
+    color: #b8984a;
+    text-shadow: 0 0 sizem(5.625) rgba(0, 0, 0, 0.65);
+    font-size: 16;
 
     @media screen and (min-width: 768px) {
-      width: 50%;
-      margin-left: auto;
+      text-shadow: 0 0 size(10) rgba(0, 0, 0, 0.65);
+      font-size: size(30);
     }
+  }
+  h2 {
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 0 sizem(10) rgba(0, 0, 0, 0.65);
+    font-size: sizem(28);
 
-    img {
-      width: 100%;
-      height: sizem(332);
-      object-fit: cover;
+    @media screen and (min-width: 768px) {
+      text-shadow: 0 0 size(10) rgba(0, 0, 0, 0.65);
+      font-size: size(38);
+      padding-top: size(15);
+      padding-bottom: size(15);
+    }
+  }
+  p {
+    color: #fff;
+    font-weight: 500;
+    text-shadow: 0 0 sizem(10) rgba(0, 0, 0, 0.65);
+    font-size: sizem(14);
+    line-height: sizem(34);
+    padding-top: sizem(30);
+    padding-bottom: sizem(35);
+    padding-left: sizem(35);
+    padding-right: sizem(35);
 
+    @media screen and (min-width: 768px) {
+      text-align: center;
+      font-size: size(18);
+      text-shadow: 0 0 size(10) rgba(0, 0, 0, 0.65);
+      padding-top: 0;
+      padding-bottom: 0;
+      padding-left: 0;
+      padding-right: 0;
+      line-height: size(34);
+    }
+  }
+  .pic {
+    @media screen and (min-width: 768px) {
+      display: flex;
+      gap: size(20);
+    }
+    .caption {
+      position: absolute;
+      right: sizem(15);
+      bottom: sizem(15);
+      color: #fff;
       @media screen and (min-width: 768px) {
-        height: size(1080);
+        right: size(15);
+        bottom: size(15);
+      }
+    }
+    .left {
+      width: sizem(220);
+      @media screen and (min-width: 768px) {
+        width: size(445);
+        order: 1;
+      }
+      .swiper {
+        .swiper-wrapper {
+          .swiper-slide {
+            position: relative;
+
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    .right {
+      position: relative;
+      width: calc(100% - sizem(25));
+      margin-left: sizem(25);
+      margin-bottom: sizem(20);
+      @media screen and (min-width: 768px) {
+        margin-left: 0;
+        margin-bottom: 0;
+        width: calc(100% - size(445) - size(20));
+        order: 2;
+      }
+      img {
+        width: 100%;
       }
     }
   }
 
-  .text {
-    width: 100%;
-    height: 100%;
+  .slogan {
+    color: #c5a24e;
+    text-align: center;
 
-    display: flex;
-    align-items: center;
-    padding: sizem(10) sizem(20) sizem(20) sizem(20);
+    font-size: sizem(12);
+    font-weight: 400;
+    line-height: sizem(16.744);
+    padding-top: sizem(30);
+    padding-bottom: sizem(30);
 
     @media screen and (min-width: 768px) {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: size(95) size(110);
+      font-size: size(16);
+      line-height: size(24);
+      padding-top: size(30);
+      padding-bottom: size(30);
     }
+  }
 
-    .bg {
-      border: 1px solid #3B8281;
-      border-width: 1px 1px 0px 1px;
-      position: absolute;
-      top: sizem(30);
-      left: sizem(30);
-      width:sizem(315);
-      height:sizem(370);
-        @media screen and (min-width: 768px) {
-          border-width: 1px 1px 1px 0px;
-      top: 8%;
-      left: size(140);
-      width:calc(100% - #{size(220)});
-      height: 84%;
-        }
-
-      &::after {
-        content: "";
-        background: #3B8281;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width:sizem(150);
-        height: 1px;
-        @media screen and (min-width: 768px) {
-        left: 0;
-        right: auto;
-        width: 1px;
-        height: size(270);
-
-        }
-      }
-
-      img {
-        position: absolute;
-        width: sizem(150);
-        bottom: 0;
-        left: -1px;
-        transform: translateY(7%);
-        @media screen and (min-width: 768px) {
-        width: size(210);
-        bottom: auto;
-        top: -1px;
-        left: 0;
-        transform: translateX(-13%);
-
-        }
-      }
-    }
-
-    .text-content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-
-      @media screen and (max-width: 767px) {
-        transform: translateX(size(20));
-      }
-
-      @media screen and (min-width: 768px) {
-        margin-left: size(-30);
-      }
-
-      .item {
-
-        border: 1px solid #3B8281;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        border-radius: 100%;
-        text-align: center;
-        width: sizem(110);
-        aspect-ratio: 1/1;
-
-        @media screen and (max-width: 767px) {
-
-          &:nth-child(1),
-          &:nth-child(2),
-          &:nth-child(3) {
-            margin-left: sizem(-7.5);
-          }
-
-          &:nth-child(4),
-          &:nth-child(5) {
-            margin-top: sizem(-22.5);
-          }
-        }
-
-        @media screen and (min-width: 768px) {
-          width: size(180);
-          height: size(180);
-          margin-left: size(-15);
-        }
-
-        h3 {
-
-          font-weight: 500;
-          border-bottom: 2.5px solid #3B8281;
-          font-size: sizem(16);
-          padding-bottom: sizem(10);
-          margin-bottom: sizem(10);
-
-          @media screen and (min-width: 768px) {
-            border-bottom: 4px solid #3B8281;
-            width: size(100);
-            font-size: size(24);
-            padding-bottom: size(15);
-            margin-bottom: size(15);
-          }
-        }
-
-        p {
-          width: 100%;
-          font-weight: 500;
-          font-size: sizem(10);
-
-          @media screen and (min-width: 768px) {
-            font-size: size(16);
-          }
-
-          span {
-            color: #F15A24;
-          }
-        }
-      }
+  .decorate {
+    position: absolute;
+    top: sizem(350);
+    transform: rotate(-90deg);
+    width: sizem(100);
+    right: sizem(20);
+    @media screen and (min-width: 768px) {
+      width: size(220);
+      top: size(-80);
+      right: 0;
+      z-index: 0;
     }
   }
 }
 </style>
-
-<script setup>
-import { computed, getCurrentInstance, ref, inject } from 'vue';
-const globals = getCurrentInstance().appContext.config.globalProperties;
-
-const isMobile = computed(() => globals.$isMobile());
-
-const smoothScroll = inject('smoothScroll')
-const scrollTo = (el) => {
-  smoothScroll({
-    scrollTo: document.querySelector(el)
-  })
-}
-</script>

@@ -13,10 +13,10 @@
   <div class="home overflow-hidden font-['Noto_Sans_TC',sans-serif] bg-[#e6e6e6] text-[#4D4D4D]">
     <S1 />
     <S2 />
-    <div class="bg">
+    <div class="_bg_">
       <S3 />
-      <!-- <S4 />
-      <S5 /> -->
+      <S4 />
+      <S5 />
     </div>
     <!-- <S6 />
     <S7 />
@@ -39,7 +39,7 @@
   }
 }
 
-.bg{
+._bg_{
   background-color: #000216;
   background-image: url(@/section/s3/bg.webp);
   background-size: cover;
