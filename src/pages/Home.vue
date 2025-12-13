@@ -13,18 +13,18 @@
   <div class="home overflow-hidden font-['Noto_Sans_TC',sans-serif] bg-[#e6e6e6] text-[#4D4D4D]">
     <S1 />
     <S2 />
-    <div style="">
+    <div class="bg">
       <S3 />
-      <S4 />
-      <S5 />
+      <!-- <S4 />
+      <S5 /> -->
     </div>
-    <S6 />
+    <!-- <S6 />
     <S7 />
     <S8 />
     <S9 />
     <S10 />
     <S11 />
-    <Order />
+    <Order /> -->
   </div>
 </template>
 
@@ -37,6 +37,12 @@
     transform: scale(1);
     opacity: 1;
   }
+}
+
+.bg{
+  background-color: #000216;
+  background-image: url(@/section/s3/bg.webp);
+  background-size: cover;
 }
 
 .fade-enter-active,

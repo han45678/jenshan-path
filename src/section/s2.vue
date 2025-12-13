@@ -14,7 +14,7 @@
 
       <img
         class="logo"
-        src="./s1/logo.svg"
+        src="./s2/logo.svg"
         alt="logo"
         data-aos="fade-up"
       />
@@ -85,6 +85,7 @@
       margin-top: sizem(55);
       filter: drop-shadow(0 0 14px rgba(0, 8, 95, 0.8));
       @media screen and (min-width: 768px) {
+        margin-top: 0;
         position: absolute;
         left: calc(100% + size(15));
         width: size(180);
