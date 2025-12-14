@@ -1,4 +1,5 @@
 <script setup>
+  import fullview from '@/components/fullview2.vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Pagination, Autoplay } from 'swiper';
 
@@ -15,10 +16,13 @@ import 'swiper/css/pagination';
     </div>
     <div class="banner">
       <img
+        class="hidden md:block"
         src="./s7/banner.jpg"
         alt="bg"
       />
       <div class="caption font-['Noto_Serif_TC',serif]">1F大廳 ｜ 實景拍攝</div>
+
+      <fullview class="block md:hidden" />
     </div>
     <div class="pic">
       <Swiper
@@ -93,7 +97,7 @@ import 'swiper/css/pagination';
   </article>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/style/function.scss';
 
 .s7 {
@@ -142,45 +146,7 @@ import 'swiper/css/pagination';
     @media screen and (min-width: 768px) {
       width: size(400);
     }
-    .swiper-pagination {
-      position: absolute;
-      width: sizem(95);
-
-      position: absolute;
-      right: 0;
-      left: unset;
-      bottom: calc(100% + sizem(20));
-      text-align: center;
-      @media screen and (min-width: 768px) {
-        margin-top: size(40);
-        position: static;
-        left: unset;
-        right: unset;
-        bottom: unset;
-        top: unset;
-        text-align: left;
-      }
-      .swiper-pagination-bullet {
-        background-color: transparent;
-        border-radius: 0;
-        width: sizem(10);
-        height: sizem(10);
-        border-radius: 100%;
-        border: sizem(2) solid #fff;
-        box-sizing: border-box;
-        padding: 0;
-
-        @media screen and (min-width: 768px) {
-          border: size(2) solid #fff;
-          width: size(10);
-          height: size(10);
-        }
-
-        &.swiper-pagination-bullet-active {
-          background-color: #fff;
-        }
-      }
-    }
+    
   }
   h3 {
     font-weight: 400;
@@ -231,6 +197,7 @@ import 'swiper/css/pagination';
     bottom: sizem(10);
     right: sizem(10);
     position: absolute;
+    z-index: 1;
 
     @media screen and (min-width: 768px) {
       font-size: size(16);
@@ -239,4 +206,46 @@ import 'swiper/css/pagination';
     }
   }
 }
+</style>
+
+<style lang="scss">
+  .swiper-pagination {
+      position: absolute;
+      width: sizem(95);
+
+      position: absolute;
+      right: 0;
+      left: unset;
+      bottom: calc(100% + sizem(20));
+      text-align: center;
+      @media screen and (min-width: 768px) {
+        margin-top: size(40);
+        position: static;
+        left: unset;
+        right: unset;
+        bottom: unset;
+        top: unset;
+        text-align: left;
+      }
+      .swiper-pagination-bullet {
+        background-color: transparent;
+        border-radius: 0;
+        width: sizem(10);
+        height: sizem(10);
+        border-radius: 100%;
+        border: sizem(2) solid #fff;
+        box-sizing: border-box;
+        padding: 0;
+
+        @media screen and (min-width: 768px) {
+          border: size(2) solid #fff;
+          width: size(10);
+          height: size(10);
+        }
+
+        &.swiper-pagination-bullet-active {
+          background-color: #fff;
+        }
+      }
+    }
 </style>
