@@ -1,25 +1,21 @@
 <template>
-    <div class="nav fixed z-[100]" v-bind:class="{ 'r16-9': higherScreen }">
+    <div class="nav fixed z-[100]"
+        v-bind:class="{ 'r16-9': higherScreen }">
         <!-- <div class="logo cursor-pointer z-10" v-bind:class="{ 'open': menuOpen }" @click="scrollTo('.s1')"></div> -->
-        <div class="menu-btn cursor-pointer flex items-center gap-3" @click="menuOpen = !menuOpen"
+        <div class="menu-btn cursor-pointer flex items-center gap-3" @click="menuOpen = !menuOpen"  v-if="$isMobile()"
             v-bind:class="{ 'open': menuOpen }">
             <!-- <p class="uppercase text-color2 z-10">menu</p> -->
             <div class="bar"></div>
         </div>
         <div class="menu flex items-center justify-center" v-bind:class="{ open: menuOpen }">
-            <!-- <div class="logo cursor-pointer z-10" v-bind:class="{ 'open': menuOpen }" @click="scrollTo('.s1')"></div>
-            <div class="menu-x-btn" @click="menuOpen = !menuOpen">
-                <img src="@/section/menu/x.svg" alt="icon">
-            </div> -->
-            <template v-for="item,  in info.navList" :key="item">
-                <div class="menu-item cursor-pointer text-white font-['noto_sans_tc'] "
-                    v-bind:class="{ btn2: item.type }"
-                    @click="scrollTo(item.target, $isMobile() ? item.offsetmo ? item.offsetmo : item.offset : item.offset)"
-                    v-if="!(item.name === '地圖導航' && !info.address) && !(item.name === '立即來電' && !info.phone)">
-                    <span class="font-['Noto_Serif_TC',serif]">{{ item.name }}</span>
-                </div>
+            <div class="logo cursor-pointer z-10" v-bind:class="{ 'open': menuOpen }" @click="scrollTo('.s1')"></div>
+            <template v-for="item, i in info.navList">
+            <div class="menu-item cursor-pointer text-white font-['noto_sans_tc'] " v-bind:class="{ btn2: item.type }"
+                @click="scrollTo(item.target,$isMobile()?item.offsetmo?item.offsetmo:item.offset:item.offset)" v-if="!(item.name === '地圖導航' && !info.address)&&!(item.name === '立即來電' && !info.phone)">
+                <span>{{ item.name }}</span>
+            </div>
             </template>
-            <div class="close" @click="menuOpen = !menuOpen" v-if="$isMobile()">
+            <div class="close" @click="menuOpen = !menuOpen"  v-if="$isMobile()">
             </div>
         </div>
     </div>
@@ -32,19 +28,13 @@
 @import "@/assets/style/function.scss";
 
 .nav {
-    right: sizem(15);
-    top: sizem(15);
-
-    @media screen and (min-width: 768px) {
-        right: size(15);
-        top: size(15);
-    }
-
+    right: size(114);
+    top: size(51);
     .logo {
         width: size(145);
         height: size(50);
         position: absolute;
-        left: 1em;
+        left:1em;
     }
 
     .menu-btn {
@@ -63,7 +53,7 @@
         }
 
         .bar {
-            width: size(30);
+            width: size(41.43);
             height: 3px;
             background-color: currentColor;
             position: relative;
@@ -78,7 +68,7 @@
                 bottom: -#{size(10)};
                 position: absolute;
                 background-color: currentColor;
-                box-shadow: 0 3px 0 #0366;
+            box-shadow: 0 3px 0 #0366;
                 //transform: translateX(-10%);
             }
 
@@ -89,15 +79,25 @@
                 top: -#{size(10)};
                 position: absolute;
                 background-color: currentColor;
-                box-shadow: 0 3px 0 #0366;
+            box-shadow: 0 3px 0 #0366;
                 //transform: translateX(-10%);
             }
         }
 
         &:hover {
+            &::after {
+                box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: .1);
+            }
 
             .bar {
-                transform: scaleX(1.2);
+                &::after {
+                    transform: translateX(0%);
+                    box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: .1);
+                }
+
+                &::before {
+                    transform: translateX(0%);
+                }
             }
         }
 
@@ -124,98 +124,58 @@
         flex-direction: row;
         top: 0;
         right: 0;
-        // background: #032763cc;
-        width: size(485);
-        height: 100dvh;
+        background: #032763cc;
+        width:100%;
+        height: size(60);
         z-index: 5;
+        padding: 0;
+        font-size: size(16);
+        gap: 2em;
+        padding: 0 3em 0 0;
         font-weight: 700;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        align-content: center;
-        background-image: url('@/section/menu/bg.png');
-       // background-color: #fff;
-        background-size: cover;
-        background-position: bottom right;
-        transform: translateX(100%);
-        transition: 0.3s;
-        border-left: 1px solid #C9BC9C80;
-        box-shadow: -4px 0 20px 0 rgba(0, 0, 0, 0.60);
         backdrop-filter: blur(2px);
-        @media screen and (max-width: 767px) {
-            width: 100%;
-        }
+        justify-content:flex-end;
 
-        .menu-x-btn{
-            position: absolute;
-            top: 0%;
-            right: 0%;
-            cursor: pointer;
-        }
         .menu-item {
             position: relative;
-            display: block;
-            width: 100%;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // gap: size(10);
+            letter-spacing: 0.1em;
+            white-space: nowrap;
 
             img {
                 width: size(43);
             }
 
-            font-size: size(30);
-            line-height: 3;
-
-            @media screen and (max-width: 767px) {
-                font-size: sizem(25);
-                line-height: 2;
-            }
-
-            span{
-                position: relative;
-                z-index: 1;
-            }
-
             &:after {
                 content: '';
                 position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                bottom: size(25);
-                width: 0;
-                height: size(12);
-                background-color: #C9BC9C;
+                bottom: -5px;
+                width: 0%;
+                height: size(2);
+                background-color: #fff;
                 transition: all .35s;
-                opacity: 0.6;
-                @media screen and (max-width: 767px) {
-                    width:0;
-                    height: sizem(12);
-                    bottom: sizem(10);
-                }
             }
 
             &:hover {
 
                 &:after {
-                    width: size(130);
-                @media screen and (max-width: 767px) {
-                    width: sizem(130);
-                }
+                    width: 100%;
                 }
             }
-
-            &.btn2 {
-                background: #EF8200;
-                ;
+            &.btn2{
+                background:#EF8200;
+;
                 border-radius: 2em;
-                margin-right: -1em;
-                padding: .7em 1.5em;
+                margin-right:-1em;
+                padding:.7em 1.5em;
 
                 &:hover {
-                    background: #df6400;
-
+                    background:#df6400;
                     &:after {
-                        width: 0;
+                        width:0;
                     }
                 }
             }
@@ -290,10 +250,10 @@
 
     .nav {
         // width: sizem(350);
-        right: 0;
-        top: 0;
+        right:0;
+        top:0;
         // padding: 0 sizem(8);
-        height: auto;
+        height:auto;
         border-radius: 9999px;
 
         .logo {
@@ -301,17 +261,17 @@
             height: sizem(42);
             transition: all .2s;
             top: sizem(13);
-            left: sizem(10);
+            left:sizem(10);
 
             &.open {
-                //  filter: brightness(0) invert(1);
+              //  filter: brightness(0) invert(1);
             }
         }
 
         .menu-btn {
             width: sizem(40);
             height: sizem(40);
-            padding: 0;
+            padding:0;
             font-size: sizem(20);
             margin: sizem(10);
 
@@ -334,7 +294,6 @@
 
             &.open {
                 display: none;
-
                 p {
                     color: #fff;
                 }
@@ -371,27 +330,26 @@
 
         .menu {
             height: 100%;
-            //  z-index: 0;
+          //  z-index: 0;
             transform: translateX(150%);
             transition: all .5s;
-            // padding: 0;
-            font-size: sizem(18);
+           // padding: 0;
+           font-size: sizem(18);
             gap: sizem(23);
             justify-content: center;
             flex-direction: column;
-            padding: 0;
-            background-image: url('@/section/menu/bg.png');
+        padding: 0;
+          //  background-image: url('@/section/menubgm.png');
 
             .menu-item {
 
                 img {
                     width: sizem(30);
                 }
-
-                &.btn2 {
-                    margin: 0 auto -.5em auto;
-                    padding: 0.4em 4em;
-                }
+            &.btn2{
+                margin:0 auto -.5em auto;
+                padding: 0.4em 4em;
+            }
 
             }
 
@@ -413,34 +371,18 @@
                 left: unset;
                 bottom: 0;
                 transform: translateX(0);
-                top: sizem(10);
-                right: sizem(10);
+                top: sizem(10);right: sizem(10);
                 width: sizem(44);
                 height: sizem(44);
                 cursor: pointer;
-                margin: 0;
-                display: flex;
+                margin:0;
+                display:flex;
                 flex-direction: column;
                 justify-content: center;
-                align-items: center;
-
-                &::before,
-                &::after {
-                    content: "";
-                    background: #FFF;
-                    height: 3px;
-                    width: 100%;
-                    display: block;
-                }
-
-                &::before {
-                    transform: rotate(45deg);
-                    margin-bottom: -2px;
-                }
-
-                &::after {
-                    transform: rotate(-45deg);
-                }
+                align-items:center;
+                &::before,&::after{content:"";background: #FFF;height: 2px;width: 100%;display: block;}
+                &::before{transform: rotate(45deg);margin-bottom:-2px;}
+                &::after{transform: rotate(-45deg);}
             }
         }
     }
@@ -448,7 +390,7 @@
 </style>
 
 <script setup>
-import { inject, computed, getCurrentInstance, onMounted, ref } from 'vue';
+import { inject,computed, getCurrentInstance, onMounted, ref } from 'vue';
 import info from "@/info"
 
 const menuOpen = ref(false)

@@ -13,26 +13,20 @@ export default {
     caseName: caseName,
     houseInfos: [
         
-        ["投資興建 ", "佳展建設股份有限公司"],
-        ["工程營造", "協侑營造有限公司"],
-        ["建築設計", "曾聰憲建築師事務所"],
-        ["結構工程", "RC"], 
-        ["規劃戶數", "住家222戶 / 車位272個 / 店面9戶"],
-        ["坪數規劃", "住家24-42坪 / 店面23-63坪"],
-        ["樓層規劃", "地上15層 / 地下3層"],
-        ["企劃銷售", "新富嘉廣告有限公司"],
-        ["基地位置", "安南區州南段1750地號"],
-        ["接待中心", "台南市安南區台江大道一段829號旁"],
+        ["投資興建 ", "XXXXXXXXXXXXXXXXXX"],
+        ["營造公司", "XXXXXXXXXXXXXXXXXX"],
+        ["產品規劃", "XXXXXXXXXXXXXXXXXX"],
+        ["行銷公司", "XXXXXXXXXXXXXXXXXX"],
     ],
-    gtmCode: ['GTM-PZGX9WST'], // 可放置多個
+    gtmCode: ['GTM-KWWGZWF5'], // 可放置多個
     //recaptcha_site_key_v2: "6Lep-78UAAAAAMaZLtddpvpixEb8cqu7v7758gLz", //主1
     //recaptcha_site_key_v2: "6LfGUjEaAAAAANYvhZQx5imGm23pRt0V-rOvkpNC", //主2
     recaptcha_site_key_v2: '6LdbrqAmAAAAAPj2D_6cBbflea1livK9Uud4FGmN', //主3
     recaptcha_site_key: '6Lck-L8UAAAAABxfvNA1NJuBrdl3iLFc3GkudC8s', // recaptcha v3
     recaptcha_user_token: '6Lck-L8UAAAAAIcvenwGDl8_Q1tKbrEYsKuriePa',
     order: {
-        title: '預約賞屋 CONTACT US',
-        // subTitle: '歡迎預約，將有專人與您聯絡，我們將竭誠為您服務'
+        title: '立即預約',
+        subTitle: '歡迎預約，將有專人與您聯絡，我們將竭誠為您服務'
     },
     // 底下2個 沒項目就會隱藏
     // 控制固定板的新欄位
@@ -41,7 +35,7 @@ export default {
         room_type: {
             title: '需求房型',
             hold: '請選擇房型',
-            option: ['兩房', '三房', '四房', '店面'],
+            option: ['100坪', '110坪'],
             bypass: false
         }
         //budget: {
@@ -60,31 +54,37 @@ export default {
     },
     navList: [
         {
-            name: '安享便捷',
+            name: '市政軸心 ',
             target: '.s6',
             offset: '-60',
             offsetmo: '0'
         },
         {
-            name: '安適生活',
+            name: '百貨環伺',
             target: '.s5',
             offset: '-60',
             offsetmo: '0'
         },
         {
-            name: '安心學習',
+            name: '建築美學',
             target: '.s8',
             offset: '-60',
             offsetmo: '0'
         },
         {
-            name: '安享品味',
+            name: '大師團隊',
             target: '.s10',
             offset: '-60',
             offsetmo: '0'
         },
         {
-            name: '安家推手',
+            name: '款待生活',
+            target: '.s11',
+            offset: '-60',
+            offsetmo: '0'
+        },
+        {
+            name: '立即預約',
             target: '.s11',
             offset: '-60',
             offsetmo: '0'

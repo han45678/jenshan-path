@@ -1,18 +1,16 @@
 <template>
     <div class="house" v-if="info.houseInfos.length > 0">
-
-
         <div class="txt">
-            <img class="logo" src="@/section/s1/logo.svg" alt="logo">
+            <!-- <img class="logo" src="@/section/s1/logo.svg" alt="logo"> -->
             <!-- <img class="t1" src="@/section/info/t1.svg" alt="text"> -->
 
-            <img class="t2" src="@/section/info/pic.png" alt="text">
+            <!-- <img class="t2" src="@/section/info/pic.png" alt="text"> -->
             <!-- <img class="t3" src="@/section/s1/t1.svg" alt="text">
             <img class="t4" src="@/section/s1/t2.svg" alt="text"> -->
         </div>
         <!-- <div class="right"> -->
-            <!-- <img class="bg" src="@/section/s1/right.webp" alt="right"> -->
-            <!-- <div class="bird">
+        <!-- <img class="bg" src="@/section/s1/right.webp" alt="right"> -->
+        <!-- <div class="bird">
                 <img src="@/section/s1/bird.webp" alt="bird" data-aos="fade-left">
             </div> -->
         <!-- </div> -->
@@ -29,15 +27,15 @@
 
     <div class="footer flex items-center justify-center w-full h-[40px] bg-[#302626]">
         <a href="https://www.lixin.com.tw/" target="_blank"><img class="hover:opacity-50"
-                src="//h35.banner.tw/img//footerLogo.gif" alt="立炘數位" srcset=""></a>
+                src="//h35.banner.tw/img//footerLogo.gif" alt="立炘數位" srcset="" /></a>
         <a href="https://www.h65.tw/admin/test/login" target="_blank" class="text-white text-xs">網頁製作</a>
     </div>
 </template>
 
 <style lang="scss">
-@import "@/assets/style/function.scss";
+@import '@/assets/style/function.scss';
 
-$house-c1: #32B8C3;
+$house-c1: #32b8c3;
 $house-c2: #000;
 
 .displaynone {
@@ -49,13 +47,13 @@ $house-c2: #000;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: sizem(920);
+    height: auto;
     // background: url("@/section/s1/bg.jpg") center;
     background-size: cover;
     position: relative;
 
     @media screen and (min-width: 768px) {
-        height: 100dvh;
+        height: auto;
     }
 
     .txt {
@@ -136,9 +134,8 @@ $house-c2: #000;
             margin-top: sizem(-180);
 
             @media screen and (min-width: 768px) {
-                
-            height: 100%;
-            margin-top: 0;
+                height: 100%;
+                margin-top: 0;
             }
         }
 
@@ -147,7 +144,7 @@ $house-c2: #000;
             position: absolute;
             width: sizem(120);
             top: sizem(95);
-      overflow: hidden;
+            overflow: hidden;
             right: 18%;
 
             @media screen and (min-width: 768px) {
@@ -162,14 +159,17 @@ $house-c2: #000;
     }
 
     .info {
-        position: absolute;
-        top: 140vw;
+        // position: absolute;
+        // top: 140vw;
 
-        //  height: 50dvh;
+        // //  height: 50dvh;
+        // @media screen and (min-width: 768px) {
+        //     right: size(450);
+        //     top: size(125);
+        //     height: auto;
+        // }
         @media screen and (min-width: 768px) {
-            right: size(450);
-            top: size(125);
-            height: auto;
+            display: none;
         }
 
         ul {
@@ -246,7 +246,7 @@ $house-c2: #000;
     }
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
     .house {
         // background:#fff;
         //  height: sizem(400);
@@ -275,12 +275,9 @@ $house-c2: #000;
             }
         }
     }
-
 }
 </style>
 
 <script setup>
-import info from "@/info"
-
-
+import info from '@/info';
 </script>
