@@ -4,6 +4,7 @@
       <img
         src="./s2/bg.webp"
         alt="bg"
+        data-aos="zoom-out"
       />
     </div>
     <div class="text">

@@ -19,6 +19,7 @@
 
     <div class="t">
       <img
+      data-aos="fade-left" 
         src="./s5/t1.png"
         alt="t"
       />

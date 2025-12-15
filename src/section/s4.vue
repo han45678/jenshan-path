@@ -10,9 +10,23 @@ import 'swiper/css/pagination';
 <template>
   <article class="s4">
     <div class="text">
-      <h3 class="font-['Gill Sans',serif]">Stylish</h3>
-      <h2 class="font-['Noto_Serif_TC',serif]">時尚光影的生活軸帶</h2>
-      <p class="hidden md:block font-['Noto_Serif_TC',serif]">
+      <h3
+        class="font-['Gill Sans',serif]"
+        data-aos="fade-zoom-in"
+      >
+        Stylish
+      </h3>
+      <h2
+        class="font-['Noto_Serif_TC',serif]"
+        data-aos="fade-zoom-in"
+      >
+        時尚光影的生活軸帶
+      </h2>
+      <p
+        class="hidden md:block font-['Noto_Serif_TC',serif]"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
         新光三越、大遠百雙百貨環伺，繁華與品味於步行之間流轉，日常的午後，是隨興的精品漫遊。<br />
         生活的每個瞬間，都是自然而然的精緻篇章。<br />
         繁華近在咫尺，卻始終保有恬靜的生活韻度
@@ -50,12 +64,20 @@ import 'swiper/css/pagination';
         </Swiper>
       </div>
     </div>
-    <p class="block md:hidden font-['Noto_Serif_TC',serif]">
+    <p
+      class="block md:hidden font-['Noto_Serif_TC',serif]"
+      data-aos="fade-up"
+      data-aos-delay="300"
+    >
       新光三越、大遠百雙百貨環伺，繁華與品味於步行之間流轉，日常的午後，是隨興的精品漫遊。<br />
       生活的每個瞬間，都是自然而然的精緻篇章。<br />
       繁華近在咫尺，卻始終保有恬靜的生活韻度
     </p>
-    <div class="slogan font-['Gill Sans',serif]">
+    <div
+      class="slogan font-['Gill Sans',serif]"
+      data-aos="fade-up"
+      data-aos-delay="300"
+    >
       A lifestyle where fashion meets light and shadow
     </div>
 

@@ -1,10 +1,10 @@
 <template>
   <article class="s6">
     <div class="text">
-      <h3 class="font-['Gill Sans',serif]">
+      <h3 class="font-['Gill Sans',serif]" data-aos="fade-zoom-in">
         <span>Full-Spectrum Functionality</span>
       </h3>
-      <h2 class="font-['Noto_Serif_TC',serif]">
+      <h2 class="font-['Noto_Serif_TC',serif]" data-aos="fade-zoom-in">
         市政中軸<br class="block md:hidden" />
         串聯全方位機能<br />
         構築菁英家庭<br class="block md:hidden" />
@@ -13,6 +13,7 @@
     </div>
     <div class="pic">
       <img
+        data-aos="zoom-out"
         src="./s6/pic.jpg"
         alt="pic"
       />

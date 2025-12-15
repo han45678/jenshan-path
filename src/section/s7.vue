@@ -11,8 +11,8 @@ import 'swiper/css/pagination';
 <template>
   <article class="s7">
     <div class="title block md:hidden">
-      <h3 class="font-['Gill Sans',serif]"><span>Prestigious Living</span></h3>
-      <h2 class="font-['Noto_Serif_TC',serif]">生活的款待 空間的藝術</h2>
+      <h3 class="font-['Gill Sans',serif]"><span data-aos="fade-zoom-in">Prestigious Living</span></h3>
+      <h2 class="font-['Noto_Serif_TC',serif]" data-aos="fade-zoom-in">生活的款待 空間的藝術</h2>
     </div>
     <div class="banner">
       <img

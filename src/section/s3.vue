@@ -16,19 +16,26 @@ import 'swiper/css/pagination';
     />
     <div class="wrapper">
       <div class="title block md:hidden">
-        <h3 class="font-['Gill Sans',serif]">Civic Axis</h3>
-        <h2 class="font-['Noto_Serif_TC',serif]">市政軸心 綠藝共生</h2>
+        <h3 class="font-['Gill Sans',serif]" data-aos="fade-zoom-in">Civic Axis</h3>
+        <h2 
+          class="font-['Noto_Serif_TC',serif]" 
+          data-aos="fade-zoom-in"
+        >
+        市政軸心 綠藝共生
+      </h2>
       </div>
       <div class="pic">
         <img
+          data-aos="zoom-out"
           src="./s3/main_pic.webp"
           alt="main_pic"
         />
       </div>
       <div class="text">
-        <h3 class="font-['Gill Sans',serif]">Civic Axis</h3>
-        <h2 class="font-['Noto_Serif_TC',serif]">市政軸心 綠藝共生</h2>
-        <p class="font-['Noto_Serif_TC',serif]">
+        <h3 class="font-['Gill Sans',serif]" data-aos="fade-zoom-in">Civic Axis</h3>
+        <h2 class="font-['Noto_Serif_TC',serif]" data-aos="fade-zoom-in">市政軸心 綠藝共生</h2>
+        <p class="font-['Noto_Serif_TC',serif]" data-aos="fade-up" 
+          data-aos-delay="300">
           台中七期歌劇院首排<br class="win_bg block md:hidden" />
           惠中路&市政北五路，七期最核心<br />
           市政中心的理性脈動，與歌劇院、夏綠地公園的<br
