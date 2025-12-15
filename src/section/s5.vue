@@ -19,8 +19,13 @@
 
     <div class="t">
       <img
-      data-aos="fade-left" 
+        data-aos="fade-left"
         src="./s5/t1.png"
+        alt="t"
+      />
+      <img
+        class="light"
+        src="./s5/light.png"
         alt="t"
       />
     </div>
@@ -66,6 +71,26 @@
     img {
       width: 100%;
     }
+
+    .light {
+        position: absolute;
+        width: sizem(55);
+        right: sizem(80);
+        top: sizem(-30);
+        mix-blend-mode: screen;
+        opacity: 0;
+        animation-name: slow-fade;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+
+        @media screen and (min-width: 768px) {
+          width: size(129);
+          right: size(195);
+          top: size(-30);
+        }
+      }
   }
   .b {
     position: absolute;
@@ -143,6 +168,19 @@
         font-size: size(18);
         line-height: size(34);
       }
+    }
+  }
+
+  @keyframes slow-fade {
+
+    /* 淡出 - 動畫開始時 */
+    0% {
+      opacity: 0;
+    }
+
+    /* 淡入 - 動畫中點時 */
+    100% {
+      opacity: 1;
     }
   }
 }
