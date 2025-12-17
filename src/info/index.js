@@ -55,38 +55,44 @@ export default {
     },
     navList: [
         {
+            name: '山之道',
+            target: '.s1',
+            offset: '0',
+            offsetmo: '0'
+        },
+        {
             name: '市政軸心 ',
-            target: '.s6',
+            target: '.s3',
             offset: '-60',
             offsetmo: '0'
         },
         {
             name: '百貨環伺',
-            target: '.s5',
+            target: '.s4',
             offset: '-60',
             offsetmo: '0'
         },
         {
             name: '建築美學',
-            target: '.s8',
+            target: '.s5',
             offset: '-60',
             offsetmo: '0'
         },
         {
-            name: '大師團隊',
-            target: '.s10',
+            name: '生活機能',
+            target: '.s6',
             offset: '-60',
             offsetmo: '0'
         },
         {
             name: '款待生活',
-            target: '.s11',
+            target: '.s7',
             offset: '-60',
             offsetmo: '0'
         },
         {
             name: '立即預約',
-            target: '.s11',
+            target: '.order',
             offset: '-60',
             offsetmo: '0'
         }

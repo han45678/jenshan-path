@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang=zh-tw><head><meta charset=UTF-8><link rel=icon href=favicon.png><meta name=viewport content="width=device-width,initial-scale=1"><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400&family=Noto+Sans+TC:wght@300;500;600;700;800;900&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel=stylesheet><script src=https://www.youtube.com/iframe_api></script><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=AW-16733690032"></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-16733690032');</script><script>function onFormSubmit(url) {
+            var callback = function () {
+                if (typeof (url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-16733690032/ZL8qCN64lNwZELCxn6s-',
+                'event_callback': callback
+            });
+            return false;
+        }
+
+        function onPhoneClick(url) {
+            var callback = function () {
+              if (typeof(url) != 'undefined') {
+                window.location = url;
+              }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-16733690032/3kfXCOS4lNwZELCxn6s-',
+                'event_callback': callback
+            });
+            return false;
+          }
+
+        function onFBClick(url) {
+            var callback = function () {
+                if (typeof (url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-16733690032/Izb3COG4lNwZELCxn6s-',
+                'event_callback': callback
+            });
+            return false;
+        }
+
+        function onMapClick(url) {
+            var callback = function () {
+                if (typeof (url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-16733690032/NQXlCOe4lNwZELCxn6s-',
+                'event_callback': callback
+            });
+            return false;
+        }
+
+        function onMsgClick(url) {
+            var callback = function () {
+              if (typeof(url) != 'undefined') {
+                window.location = url;
+              }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-16733690032/LH6YCOq4lNwZELCxn6s-',
+                'event_callback': callback
+            });
+            return false;
+          }</script><script type=module crossorigin src=/assets/index.b7e5188e.js></script><link rel=stylesheet href=/assets/index.eb294683.css><?php include('head.php'); ?></head><body><div id=app></div></body></html>

@@ -57,7 +57,7 @@
   .bg {
     width: 100%; //height: 100%;
     transform: translateY(0%); // 初始位置
-    transition: transform 2s ease-out; // 平滑過渡效果（可選）
+    transition: transform 10s linear; // 平滑過渡效果（可選）
     height: sizem(9000);
     &::before {
       content: '';
@@ -138,7 +138,7 @@ onMounted(() => {
       window.requestAnimationFrame(() => {
         const scrollPosition = window.scrollY;
         if (allbg) {
-          allbg.style.transform = `translateY(${scrollPosition * 0.25 - 100}px)`; // 0.3 為速度係數
+          allbg.style.transform = `translateY(${scrollPosition * 0.1}px)`; // 0.3 為速度係數
         }
         ticking = false; // 完成處理後重置
       });
