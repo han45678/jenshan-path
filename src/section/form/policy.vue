@@ -1,7 +1,7 @@
 <template>
   <input type="checkbox" id="policy-modal" class="modal-toggle" />
   <div class="modal">
-    <div class="modal-box w-11/12 max-w-5xl text-left">
+    <div class="modal-box w-11/12 max-w-5xl text-left text-[#000]">
       <div class="text-3xl font-bold">個資告知事項聲明</div>
       <h3 class="text-lg py-4">
         非常歡迎您光臨「{{

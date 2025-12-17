@@ -6,7 +6,7 @@
       <img class="win_bg hidden md:block" src="./s9/bg.jpg" alt="bg">
       <img class="win_bg block md:hidden" src="./s9/bgm.jpg" alt="bg">
       <div class="text" data-aos="fade-up">
-        <h2 class="font-['Noto_Serif_TC',serif]">
+        <h2>
           安<br>
           然<br>
           成<br>
@@ -16,13 +16,13 @@
           生<br>
           活
         </h2>
-        <p class="font-['Noto_Serif_TC',serif]">
+        <p>
           通勤直抵南科，下樓全聯為鄰，雙語學區<br>
           好境，日系藝文公設，心之所嚮應有盡有。
         </p>
       </div>
     </div>
-    <div class="caption font-['Noto_Serif_TC',serif]">情境示意圖</div>
+    <div class="caption">情境示意圖</div>
   </article>
 </template>
 

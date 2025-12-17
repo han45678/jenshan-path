@@ -18,8 +18,8 @@
         <div class="info">
             <ul>
                 <li v-for="item in info.houseInfos" :key="item">
-                    <p class="font-['Noto_Serif_TC',serif] text-[#fff]" v-html="item[0]"></p>
-                    <p class="font-['Noto_Serif_TC',serif] text-[#fff]" v-html="item[1]"></p>
+                    <p class="text-[#fff]" v-html="item[0]"></p>
+                    <p class="text-[#fff]" v-html="item[1]"></p>
                 </li>
             </ul>
         </div>

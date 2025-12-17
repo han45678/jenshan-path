@@ -1,22 +1,23 @@
-const caseName = '佳展建設';
+const caseName = '仁山山之道';
 export default {
     caseid: '91184de3-cfb1-4bcc-8ca2-d91ef7142c5b',
-    address:'台南市北區中華西路二段857號',
+    address:'xxxxxx',
     address1: '接待中心', //按鈕區的--- 如空白會只呈現地址
     address2: '接待中心', //map點下確認的--- 如空白會顯示"導航地址"
     googleSrc:
         'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.4769292962806!2d120.18590139999999!3d23.0062545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e7723c77da6b9%3A0x948606cdea29a273!2z5L2z6YuQ6YOhIOaOpeW-heS4reW_gw!5e0!3m2!1szh-TW!2stw!4v1764692376149!5m2!1szh-TW!2stw',
-    googleLink: 'https://maps.app.goo.gl/5qWPKRUKT6wnM8aq8',
-    phone: '(06)262-8888',
+    googleLink: 'https://maps.app.goo.gl/',
+    phone: '08-8352-888',
     fbLink: 'https://www.facebook.com/61578255539676/',
     fbMessage: 'https://m.me/61578255539676/',
     caseName: caseName,
     houseInfos: [
-        
+      /*  
         ["投資興建 ", "XXXXXXXXXXXXXXXXXX"],
         ["營造公司", "XXXXXXXXXXXXXXXXXX"],
         ["產品規劃", "XXXXXXXXXXXXXXXXXX"],
         ["行銷公司", "XXXXXXXXXXXXXXXXXX"],
+        */
     ],
     gtmCode: ['GTM-KWWGZWF5'], // 可放置多個
     //recaptcha_site_key_v2: "6Lep-78UAAAAAMaZLtddpvpixEb8cqu7v7758gLz", //主1

@@ -4,9 +4,15 @@
     <div
       class="contact-info mx-auto flex flex-col items-center justify-between"
     >
+      <img
+        class="logo"
+        src="@/section/s1/logo.svg"
+        alt="logo"
+        data-aos="fade-up" v-if="isMobile"
+      />
       <div class="flex justify-between w-full contact-item-box">
         <div
-          class="flex contact-item justify-center items-center font-['Noto_Serif_TC',serif]"
+          class="flex contact-item justify-center items-center"
           @click="
             modalOpen = true;
             modalType = 'phone';
@@ -22,7 +28,7 @@
           <div>{{ info.phone }}</div>
         </div>
         <div
-          class="flex contact-item justify-center items-center font-['Noto_Serif_TC',serif]"
+          class="flex contact-item justify-center items-center"
           @click="
             modalOpen = true;
             modalType = 'fb';
@@ -37,7 +43,7 @@
           <div>Facebook 諮詢</div>
         </div>
         <div
-          class="flex contact-item justify-center items-center font-['Noto_Serif_TC',serif] btfanpage"
+          class="flex contact-item justify-center items-center btfanpage"
           @click="
             open();
             onFBClick();
@@ -56,7 +62,7 @@
         v-if="info.address"
       >
         <div
-          class="flex contact-item justify-center items-center font-['Noto_Serif_TC',serif] address"
+          class="flex contact-item justify-center items-center address"
         >
           <div>
             <span v-if="info.address1">{{ info.address1 }}：</span
@@ -64,7 +70,7 @@
           </div>
         </div>
         <div
-          class="flex contact-item justify-center items-center font-['Noto_Serif_TC',serif] googlemap"
+          class="flex contact-item justify-center items-center googlemap"
           @click="
             modalOpen = true;
             modalType = 'gmap';
@@ -88,7 +94,7 @@
     class="bg-white mo-contact-info flex justify-between w-full contact-item-box items-center"
   >
     <div
-      class="flex flex-1 flex-col contact-item justify-center items-center font-['Noto_Serif_TC',serif]"
+      class="flex flex-1 flex-col contact-item justify-center items-center"
       @click="
         modalOpen = true;
         modalType = 'phone';
@@ -104,7 +110,7 @@
       <div>撥打電話</div>
     </div>
     <div
-      class="flex flex-1 flex-col contact-item justify-center items-center font-['Noto_Serif_TC',serif]"
+      class="flex flex-1 flex-col contact-item justify-center items-center"
       @click="
         modalOpen = true;
         modalType = 'fb';
@@ -119,7 +125,7 @@
       <div>FB 諮詢</div>
     </div>
     <div
-      class="flex flex-1 flex-col contact-item justify-center items-center font-['Noto_Serif_TC',serif]"
+      class="flex flex-1 flex-col contact-item justify-center items-center"
       @click="scrollTo('.order')"
     >
       <img
@@ -130,7 +136,7 @@
       <div>預約賞屋</div>
     </div>
     <div
-      class="flex flex-1 flex-col contact-item justify-center items-center font-['Noto_Serif_TC',serif]"
+      class="flex flex-1 flex-col contact-item justify-center items-center"
       @click="
         modalOpen = true;
         modalType = 'gmap';
@@ -273,28 +279,6 @@
   z-index: 50;
   // background: #045147;
 
-  .logo {
-    width: size(400);
-    margin: auto;
-    position: relative;
-    img {
-      width: 100%;
-      &:last-child {
-        margin: auto;
-        width: 63.5%;
-        position: absolute;
-        top: 24%;
-        left: 0;
-        right: 0;
-      }
-
-      &:first-child {
-        position: relative;
-        transform: rotate(-10deg);
-        animation: an 5s linear infinite alternate;
-      }
-    }
-  }
   @keyframes an {
     to {
       transform: rotate(10deg);
@@ -454,8 +438,7 @@
     background-size: sizem(450) auto;
 
     .logo {
-      width: sizem(257);
-      margin: sizem(40) auto sizem(30) auto;
+      margin: sizem(00) auto sizem(30) auto;
       // margin-bottom: sizem(47);
     }
 
@@ -523,9 +506,11 @@
 
 <script setup>
 import info from '@/info';
-import { inject, ref } from 'vue';
+import { inject, ref ,getCurrentInstance,computed} from 'vue';
 const modalOpen = ref(false);
 const modalType = ref('');
+const globals = getCurrentInstance().appContext.config.globalProperties;
+const isMobile = computed(() => globals.$isMobile());
 
 const go = () => {
   if (modalType.value == 'phone') {

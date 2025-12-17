@@ -23,7 +23,7 @@
             !(item.name === '地圖導航' && !info.address) &&
             !(item.name === '立即來電' && !info.phone)
           ">
-          <span class="font-['Noto_Serif_TC',serif]">{{ item.name }}</span>
+          <span>{{ item.name }}</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
             <path d="M8.5 0L10.249 6.75097L17 8.5L10.249 10.249L8.5 17L6.75097 10.249L0 8.5L6.75097 6.75097L8.5 0Z"
               fill="#E4CB8F" />
@@ -167,6 +167,7 @@
       // gap: size(10);
       letter-spacing: 0.1em;
       white-space: nowrap;
+      filter:drop-shadow(0 1px 1px rgba(0,0,0,.85));
       svg{
         display: none;
         @media screen and (min-width: 768px) {
@@ -189,15 +190,15 @@
         content: '';
         position: absolute;
         bottom: -5px;
-        width: 0%;
-        height: size(2);
+        width: 0%;left: 0;right: 1.1em;margin: auto;
+        height: size(1);
         background-color: #fff;
         transition: all 0.35s;
       }
 
       &:hover {
         &:after {
-          width: 100%;
+          width: 4.4em;
         }
       }
 

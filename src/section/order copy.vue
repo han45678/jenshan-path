@@ -1,0 +1,717 @@
+<template>
+  <div
+    id="order"
+    class="order relative text-center  bg-[#0008]"
+  >
+    <div class="order-section">
+      <img class="l" src="./s1/l.webp" alt="logo" data-aos="fade" data-aos-delay="200" />
+
+      <img
+        class="logo"
+        src="@/section/s1/logo.svg"
+        alt="logo"
+        data-aos="fade-up" v-if="!isMobile"
+      />
+      <div
+        class="order-title text-center font-['Noto_Serif_TC',serif]"
+        v-if="info.order.title"
+        v-html="info.order.title"
+      />
+      <div
+        class="order-subTitle text-center"
+        v-if="info.order.subTitle"
+        v-html="
+          $isMobile() && info.order.subTitle_mo
+            ? info.order.subTitle_mo
+            : info.order.subTitle
+        "
+      ></div>
+
+      <!-- Form -->
+      <div class="form mx-auto relative flex justify-center">
+        <div class="left h-full flex flex-col justify-between items-center">
+          <label class="row name">
+            <span>
+              姓名<span>*</span>
+              <div class="radio-group sex">
+                <label class="radio-label">
+                  <input
+                    type="radio"
+                    value="男"
+                    v-model="formData.sex"
+                    class="radio-input"
+                  />
+                  <span>先生</span>
+                </label>
+                <label class="radio-label">
+                  <input
+                    type="radio"
+                    value="女"
+                    v-model="formData.sex"
+                    class="radio-input"
+                  />
+                  <span>小姐</span>
+                </label>
+              </div>
+            </span>
+            <input
+              type="text"
+              placeholder="姓名"
+              class="input w-full rounded-none"
+              :value="formData.name"
+              @input="(event) => (formData.name = event.target.value)"
+            />
+          </label>
+
+          <label class="row"
+            ><span>手機<span>*</span></span>
+            <input
+              type="text"
+              placeholder="手機"
+              class="input w-full rounded-none"
+              :value="formData.phone"
+              @input="(event) => (formData.phone = event.target.value)"
+          /></label>
+
+          <!--  -->
+          <label class="row"
+            ><span>居住縣市</span>
+            <select
+              class="select w-full rounded-none"
+              v-model="formData.city"
+            >
+              <option
+                value=""
+                selected
+                disabled
+              >
+                請選擇城市
+              </option>
+              <option
+                v-for="city in cityList"
+                :value="city.value"
+                :key="city"
+              >
+                {{ city.label }}
+              </option>
+            </select></label
+          >
+          <label class="row"
+            ><span>居住地區</span>
+            <select
+              class="select w-full rounded-none"
+              v-model="formData.area"
+            >
+              <option
+                value=""
+                selected
+                disabled
+              >
+                請選擇地區
+              </option>
+              <option
+                v-for="area in areaList"
+                :value="area.value"
+                :key="area"
+              >
+                {{ area.label }}
+              </option>
+            </select></label
+          >
+
+          <!-- 動態 select 欄位產生 預算 用途 等 在index.js控制  -->
+          <template
+            v-for="(fieldData, fieldKey) in selectFields"
+            :key="fieldKey"
+          >
+            <label class="row no_line">
+              <span
+                >{{ fieldData.title
+                }}<span v-if="fieldData.bypass">*</span></span
+              >
+              <div class="radio-group">
+                <label
+                  v-for="option in fieldData.option"
+                  :key="option"
+                  class="radio-label"
+                >
+                  <input
+                    type="radio"
+                    :value="option"
+                    v-model="formData[fieldKey]"
+                    class="radio-input"
+                  />
+                  <span>{{ option }}</span>
+                </label>
+              </div>
+            </label>
+          </template>
+          <!-- 動態 select end-->
+        </div>
+        <div class="right">
+          <textarea
+            :value="formData.msg"
+            @input="(event) => (formData.msg = event.target.value)"
+            class="row textarea w-full h-full rounded-none"
+            placeholder="(非必填) 請輸入您的留言"
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Policy -->
+      <div class="flex gap-2 items-center justify-center control">
+        <input
+          type="checkbox"
+          v-model="formData.policyChecked"
+          :checked="formData.policyChecked"
+          class="checkbox bg-white rounded-md"
+        />
+        <p class="text-[#fff]">
+          本人知悉並同意<label
+            for="policy-modal"
+            class="modal-button text-[#FF0] cursor-pointer hover:opacity-70"
+            >「個資告知事項聲明」</label
+          >內容
+        </p>
+      </div>
+      <Policy />
+
+      <!-- Recaptcha -->
+      <vue-recaptcha
+        class="flex justify-center mt-8 z-10"
+        ref="recaptcha"
+        :sitekey="info.recaptcha_site_key_v2"
+        @verify="onRecaptchaVerify"
+        @expired="onRecaptchaUnVerify"
+      />
+
+      <!-- Send -->
+      <div
+        class="send mt-8 mx-auto hover:scale-90 btn cursor-pointer font-['Noto_Serif_TC',serif]"
+        @click="send()"
+      >
+        {{ sending ? '發送中..' : '送出表單' }}
+      </div>
+
+      <!-- Contact Info -->
+      <ContactInfo />
+    </div>
+
+    <!-- Map -->
+    <Map v-if="info.googleSrc" />
+
+    <!-- HouseInfo -->
+    <HouseInfo />
+  </div>
+</template>
+
+<style lang="scss">
+@import '@/assets/style/function.scss';
+
+.order-section {
+  position: relative;
+  // padding-top: size(406);
+  overflow: hidden;
+  min-height: size(500);
+
+  .bg-image {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: size(50);
+    vertical-align: middle;
+  }
+  
+  .l{
+      width: sizem(160);
+      position: absolute;
+      left: 0;
+      top: sizem(450);
+      img{width: 100%;transform: scaleX(-1);}
+
+      @media screen and (min-width: 768px) {
+        width: size(410); 
+        top: size(160);
+      }
+    }
+  .logo {
+    width: sizem(300);
+      @media screen and (min-width: 768px) {
+    width: size(510);
+      }
+  }
+}
+
+.order {
+  width: 100%;
+  padding-top: size(40);position: relative;
+  // padding-bottom: size(245);
+
+  .order-title {
+    font-size: size(50);
+    font-weight: 600;
+    color: #b8984a;
+    padding-top: 1.5em;
+
+    //filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.8))
+    .line {
+      width: size(439);
+    }
+  }
+
+  .order-title-img {
+    width: size(1138);
+    margin-top: size(155);
+    margin-bottom: size(85);
+  }
+
+  .order-subTitle {
+    font-size: size(17);
+    color: #fff;
+    padding-top: 0.8em;
+    letter-spacing: 0.1em;
+    //font-weight: 500;filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.8))
+  }
+
+  .cus-divider {
+    margin: 0 auto;
+    width: size(300);
+    height: size(2);
+    margin-bottom: size(50);
+    //  background-color: #055F76;
+  }
+
+  .form {
+    width: size(1100);
+    min-width: 750px;
+    //  height: 350px;
+    gap: size(80);
+    margin-top: size(45);
+    margin-bottom: size(50);
+    z-index: 50;
+    align-items: stretch;
+
+    .left {
+      position: relative;
+      flex: 1;
+      gap: size(20);
+      align-items: flex-start;
+      //   width: size(419);
+    }
+
+    .right {
+      flex: 1;
+      height: auto;
+      //  width: size(419);
+    }
+
+    &::after {
+      content: '';
+      width: size(1);
+      height: 100%;
+      background-color: #0003;
+      position: absolute;
+    }
+
+    .row {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+      color: #fff;
+      width: 100%;
+      align-items: center;
+      position: relative;
+      &.no_line {
+        border-bottom: none;
+        .radio-group {
+          margin-top: size(20);
+          text-align: left;
+          .radio-label {
+            margin-right: size(40);
+            
+            input {
+              margin-right: size(5);
+              width: size(20);
+              height: size(20);
+            }
+          }
+        }
+      }
+      .sex{
+        position: absolute;
+        right: 0;
+        top: 0;
+        .radio-label {
+            margin-right: size(40);
+            input {
+              margin-right: size(5);
+              width: size(20);
+              height: size(20);
+            }
+          }
+      }
+
+      > span {
+        color: #fff;
+        width: 5.5em;
+        text-align: left;
+        display: block;
+
+        > span {
+          color: #ff0; //font-size: 12px;
+        }
+      }
+
+      input,
+      select {
+        background: inherit;
+        flex: 1;
+      }
+
+      option {
+        background-color: #000;
+        color: #fff;
+      }
+
+      select {
+        background: url('@/section/form/select.svg') no-repeat
+          calc(100% - 0.5em) 100%;
+        background-size: auto 200%;
+        transition: background 0.3s;
+
+        &:focus {
+          background-position: calc(100% - 0.5em) 0%;
+        }
+      }
+
+      &.name {
+        //width: calc(100% - 3.8em);
+      }
+
+      //沒有性別的話這條槓掉
+    }
+
+    .gender {
+      display: flex;
+      position: absolute;
+      right: 0;
+      flex-direction: column;
+      color: #fff;
+
+      label:first-child {
+        margin-bottom: 0.3em;
+      }
+
+      input {
+        margin-right: 0.3em;
+      }
+    }
+  }
+
+  .send {
+    font-size: 20px;
+    letter-spacing: 0.9em;
+    text-indent: 0.9em;
+    color: #fff;
+    background-color: #b8984a;
+    border: 1px solid #b8984a;
+    border-radius: 0;
+
+    width: 308px;
+    height: 3.3em;
+    line-height: 3.3;
+    z-index: 10;
+    font-weight: 400;
+    position: relative;
+  }
+
+  .control {
+    font-size: size(16);
+    color: #000;
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .order-section {
+    min-height: sizem(800);
+    position: relative;
+    padding-bottom: size(245);
+    // overflow: hidden;
+    // padding-top: sizem(200);
+
+    .bg-image {
+      position: absolute;
+      width: 100%;
+      left: -#{sizem(30)};
+      bottom: sizem(590);
+    }
+  }
+
+  .order {
+    width: 100%;
+    padding-bottom: sizem(63);
+
+    .cus-divider {
+      margin: 0 auto;
+      width: sizem(117);
+      height: sizem(2);
+      margin-bottom: sizem(25);
+      background-color: #055f76;
+    }
+
+    .order-title {
+      font-size: sizem(27);
+      padding-top: 2em;
+      .line {
+        width: sizem(258);
+      }
+    }
+    .order-subTitle {
+      font-size: sizem(13);
+      padding-top: 0;
+    }
+
+    .order-title-img {
+      width: sizem(259);
+      margin-bottom: sizem(25);
+    }
+
+    .form {
+      width: sizem(310);
+      min-width: 0;
+      height: auto;
+      gap: sizem(15);
+      margin-bottom: sizem(20);
+      flex-direction: column;
+      margin-top: sizem(20);
+
+      .left {
+        width: 100%;
+        gap: sizem(15);
+      }
+
+      .right {
+        width: 100%;
+        height: sizem(100);
+
+        .row {
+          height: 7em;
+          textarea {
+            border-top: 1px solid rgba(255, 255, 255, 0.6);
+            border-left: 1px solid rgba(255, 255, 255, 0.6);
+            border-right: 1px solid rgba(255, 255, 255, 0.6);
+            background-color: transparent;
+            resize: none;
+          }
+        }
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+
+    .send {
+      font-size: sizem(21);
+      width: sizem(310);
+      height: sizem(72);
+    }
+
+    .control {
+      font-size: sizem(14.6);
+    }
+  }
+}
+</style>
+
+<script setup>
+import Policy from '@/section/form/policy.vue';
+import ContactInfo from '@/section/form/contactInfo.vue';
+import Map from '@/section/form/map.vue';
+import HouseInfo from '@/section/form/houseInfo.vue';
+
+import info from '@/info';
+
+import { cityList, renderAreaList } from '@/info/address.js';
+import {
+  computed,
+  getCurrentInstance,
+  ref,
+  reactive,
+  watch,
+  onMounted
+} from 'vue';
+import { VueRecaptcha } from 'vue-recaptcha';
+
+const globals = getCurrentInstance().appContext.config.globalProperties;
+const isMobile = computed(() => globals.$isMobile());
+
+// const selectFields = info.selectFields
+
+import { useToast } from 'vue-toastification';
+const toast = useToast();
+
+const sending = ref(false);
+
+// 後端那 name phone email msg 為必要欄位 請勿刪除
+const requiredFields = {
+  // 固定必要欄位 (請勿刪)
+  name: '姓名',
+  phone: '手機',
+  email: '信箱',
+  msg: '備註訊息',
+  city: '居住縣市',
+  area: '居住地區',
+  gender: '性別',
+  policyChecked: '個資告知事項聲明',
+  r_verify: '機器人驗證'
+};
+
+// selectFields
+const selectFields = info.selectFields || {};
+
+// 初始 formData（包含 selectFields 欄位）
+const formData = reactive({
+  ...Object.keys(requiredFields).reduce((acc, key) => {
+    acc[key] = key === 'policyChecked' || key === 'r_verify' ? false : '';
+    return acc;
+  }, {}),
+  ...Object.keys(selectFields).reduce((acc, key) => {
+    acc[key] = '';
+    return acc;
+  }, {})
+});
+
+// bypass（非必填欄位，根據 selectFields 的 bypass 設定）
+const staticBypass = ['email', 'msg', 'city', 'area', 'gender'];
+const bypass = [
+  ...staticBypass,
+  ...Object.entries(selectFields)
+    .filter(([_, field]) => field.bypass !== true)
+    .map(([key]) => key)
+];
+
+// 中文對照（formDataRef）
+const formDataRef = {
+  ...requiredFields,
+  ...Object.entries(selectFields).reduce((acc, [key, val]) => {
+    acc[key] = val.title || key;
+    return acc;
+  }, {})
+};
+
+const areaList = ref([]);
+
+watch(
+  () => formData.city,
+  (newVal, oldVal) => {
+    areaList.value = renderAreaList(newVal);
+    formData.area = areaList.value[0].value;
+  }
+);
+// 新系統這裡需調整
+const onRecaptchaVerify = (token) => {
+  formData.r_verify = token;
+};
+const onRecaptchaUnVerify = () => {
+  formData.r_verify = false;
+};
+
+const send = () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const utmSource = urlParams.get('utm_source') || 'null'; // 确保有有效的来源
+  const utmMedium = urlParams.get('utm_medium') || 'null';
+  const utmContent = urlParams.get('utm_content') || 'null';
+  const utmCampaign = urlParams.get('utm_campaign') || 'null';
+  const time = new Date();
+  const year = time.getFullYear();
+  const month = time.getMonth() + 1;
+  const day = time.getDate();
+  const hour = time.getHours();
+  const min = time.getMinutes();
+  const sec = time.getSeconds();
+  const date = `${year}-${month}-${day} ${hour}:${min}:${sec}`;
+
+  const presend = new FormData();
+  let pass = true;
+  let unfill = [];
+  let idx = 0;
+
+  if (formData.gender) {
+    formData.name = `${formData.name}(${formData.gender})`;
+  }
+  // 验证必填字段
+  for (const [key, value] of Object.entries(formData)) {
+    if (!bypass.includes(key) && (value === '' || value === false)) {
+      unfill.push(formDataRef[key] || key);
+      pass = false;
+    }
+    if (key !== 'r_verify' && key !== 'policyChecked') {
+      presend.append(key, value);
+    }
+  }
+
+  presend.append('sex', formData.sex);
+  presend.append('utm_source', utmSource);
+  presend.append('utm_medium', utmMedium);
+  presend.append('utm_content', utmContent);
+  presend.append('utm_campaign', utmCampaign);
+  presend.append('message', formData.msg);
+  presend.append('case_code', info.case_code ? info.case_code : info.caseid);
+
+  // 如果有必填字段为空，返回
+  if (!pass) {
+    toast.error(`「${unfill.join(', ')}」為必填或必選`);
+    return;
+  }
+
+  // 手机格式验证
+  const MobileReg = /^(09)[0-9]{8}$/;
+  if (!formData.phone.match(MobileReg)) {
+    toast.error('手機格式錯誤 ( 09開頭10位數字 )');
+    return;
+  }
+
+  // 如果通过验证
+  if (pass && !sending.value) {
+    sending.value = true;
+    fetch(
+      `https://script.google.com/macros/s/AKfycbyQKCOhxPqCrLXWdxsAaAH06Zwz_p6mZ5swK80USQ/exec?name=${formData.name}
+      &phone=${formData.phone}
+      &email=${formData.email}
+      &cityarea=${formData.city}${formData.area}
+      &msg=${formData.room_type}；${formData.msg}
+      &utm_source=${utmSource}
+      &utm_medium=${utmMedium}
+      &utm_content=${utmContent}
+      &utm_campaign=${utmCampaign}
+      &date=${date}
+      &campaign_name=${info.caseName}`,
+      {
+        method: 'GET'
+      }
+    );
+    //caseid 在index.js裡設定
+    fetch('https://service-sys.lixin.com.tw/reserve/' + info.caseid, {
+      method: 'POST',
+      body: presend
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          window.location.href = 'formThanks';
+        } else {
+          return response.json().then((err) => {
+            console.error('後端錯誤訊息：', err);
+            toast.error(err.message || '提交失敗');
+          });
+        }
+      })
+      .catch((error) => {
+        console.error('傳送失敗：', error);
+        toast.error('無法連線或伺服器錯誤');
+      })
+      .finally(() => {
+        sending.value = false;
+      });
+  }
+};
+</script>

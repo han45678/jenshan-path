@@ -9,10 +9,11 @@ import 'swiper/css/pagination';
 </script>
 
 <template>
-  <article class="s7">
+  <article class="s7 bg-[#0008]">
+    <div class="r" data-aos="fade" data-aos-delay="200"><img src="./s1/r.webp" alt="logo" /></div>
     <div class="title block md:hidden">
-      <h3 class="font-['Gill Sans',serif]"><span data-aos="fade-zoom-in">Prestigious Living</span></h3>
-      <h2 class="font-['Noto_Serif_TC',serif]" data-aos="fade-zoom-in">生活的款待 空間的藝術</h2>
+      <h3 class="font-[Lexend]"><span data-aos="fade-zoom-in">Prestigious Living</span></h3>
+      <h2 data-aos="fade-zoom-in">生活的款待 空間的藝術</h2>
     </div>
     <div class="banner">
       <img
@@ -20,7 +21,7 @@ import 'swiper/css/pagination';
         src="./s7/banner.jpg"
         alt="bg"
       />
-      <div class="caption font-['Noto_Serif_TC',serif]">1F大廳 ｜ 實景拍攝</div>
+      <div class="caption">1F大廳 ｜ 實景拍攝</div>
 
       <fullview class="block md:hidden" />
     </div>
@@ -36,7 +37,7 @@ import 'swiper/css/pagination';
             src="./s7/pic01.jpg"
             alt="bg"
           />
-          <div class="caption font-['Noto_Serif_TC',serif]">
+          <div class="caption">
             2F交誼廳 ｜ 實景拍攝
           </div>
         </SwiperSlide>
@@ -45,7 +46,7 @@ import 'swiper/css/pagination';
             src="./s7/pic02.jpg"
             alt="bg"
           />
-          <div class="caption font-['Noto_Serif_TC',serif]">
+          <div class="caption">
             2F會議室 ｜ 實景拍攝
           </div>
         </SwiperSlide>
@@ -54,7 +55,7 @@ import 'swiper/css/pagination';
             src="./s7/pic03.jpg"
             alt="bg"
           />
-          <div class="caption font-['Noto_Serif_TC',serif]">
+          <div class="caption">
             2F健身房 ｜ 實景拍攝
           </div>
         </SwiperSlide>
@@ -63,7 +64,7 @@ import 'swiper/css/pagination';
             src="./s7/pic04.jpg"
             alt="bg"
           />
-          <div class="caption font-['Noto_Serif_TC',serif]">
+          <div class="caption">
             頂樓娛樂室 ｜ 實景拍攝
           </div>
         </SwiperSlide>
@@ -72,7 +73,7 @@ import 'swiper/css/pagination';
             src="./s7/pic05.jpg"
             alt="bg"
           />
-          <div class="caption font-['Noto_Serif_TC',serif]">
+          <div class="caption">
             頂樓娛樂室 ｜ 實景拍攝
           </div>
         </SwiperSlide>
@@ -82,10 +83,10 @@ import 'swiper/css/pagination';
       <h3 class="hidden md:block font-['Gill Sans',serif]">
         <span>Prestigious Living</span>
       </h3>
-      <h2 class="hidden md:block font-['Noto_Serif_TC',serif]">
+      <h2 class="hidden md:block">
         生活的款待 空間的藝術
       </h2>
-      <p class="font-['Noto_Serif_TC',serif]">
+      <p>
         挑高7.5米迎賓門廳，彰顯歸家的尊榮儀式；<br />
         閱覽室的靜謐深思、健身房的律動節奏、<br />
         交誼廳的雅聚氛圍，皆構築出日常的從容美學。<br />
@@ -107,10 +108,10 @@ import 'swiper/css/pagination';
   justify-content: center;
   align-items: center;
   padding-top: sizem(60);
-  padding-bottom: sizem(60);
+  padding-bottom: sizem(60);position: relative;
   @media screen and (min-width: 768px) {
     gap: size(95);
-    padding-top: size(60);
+    padding-top: 0;
     padding-bottom: size(110);
   }
 
@@ -149,7 +150,7 @@ import 'swiper/css/pagination';
     
   }
   h3 {
-    font-weight: 400;
+    font-weight: 500;
     color: #b8984a;
     text-shadow: 0 0 sizem(5.625) rgba(0, 0, 0, 0.65);
     font-size: sizem(16.875);
@@ -205,19 +206,31 @@ import 'swiper/css/pagination';
       right: size(10);
     }
   }
+  .r {
+      width: sizem(210);
+      position: absolute;
+      right:  sizem(-50);
+      top: sizem(270);
+      img{width: 100%;transform: scaleX(-1);}
+
+      @media screen and (min-width: 768px) {
+        width: size(410); right:size(-120);
+        top: size(380);
+      }
+    }
 }
 </style>
 
 <style lang="scss">
+@import '@/assets/style/function.scss';
   .swiper-pagination {
       position: absolute;
       width: sizem(95);
-
       position: absolute;
       right: 0;
       left: unset;
-      bottom: calc(100% + sizem(20));
-      text-align: center;
+      top: sizem(-40);
+      text-align: right;
       @media screen and (min-width: 768px) {
         margin-top: size(40);
         position: static;
@@ -247,5 +260,7 @@ import 'swiper/css/pagination';
           background-color: #fff;
         }
       }
+
+      
     }
 </style>

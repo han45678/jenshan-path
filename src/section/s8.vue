@@ -8,7 +8,7 @@ import 'swiper/css/pagination'
 </script>
 
 <template>
-  <article class="s8 font-['Noto_Serif_TC',serif]">
+  <article class="s8">
     <div class="txt">
       <h2><span data-aos="fade-up">安心學習 <span class="b">12</span>年快樂成長</span></h2>
       <img class="line" src="./s3/line.svg" alt="line">

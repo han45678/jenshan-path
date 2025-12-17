@@ -8,7 +8,7 @@
       />
     </div>
     <div class="text">
-      <h2 class="font-['Noto_Serif_TC',serif]">
+      <h2>
         七期之上<br />唯一可被收藏的座標
       </h2>
       <p class="font-['Gill Sans',serif]">Collected Coordinate</p>
@@ -30,6 +30,8 @@
   width: 100%;
   height: 100dvh;
   position: relative;
+  overflow: hidden;
+  background: #036;
   @media screen and (min-width: 768px) {
     height: size(774);
   }
@@ -39,6 +41,7 @@
     height: 100%;
     inset: 0;
     margin: auto;
+    pointer-events: none;
     img {
       width: 100%;
       height: 100%;

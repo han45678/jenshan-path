@@ -1,7 +1,7 @@
 <template>
   <article class="s10">
     <img class="img" src="./s10/img.svg" alt="img" />
-    <div class="txt font-['Noto_Serif_TC',serif]">
+    <div class="txt">
       <h2>
         <span data-aos="fade-up">安享品味 嚴選國際建材</span>
       </h2>

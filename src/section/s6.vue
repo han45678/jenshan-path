@@ -1,23 +1,31 @@
 <template>
-  <article class="s6">
+  <article class="s6 bg-[#0008]">
     <div class="text">
-      <h3 class="font-['Gill Sans',serif]" data-aos="fade-zoom-in">
+      <h3 class="font-[Lexend]" data-aos="fade-zoom-in">
         <span>Full-Spectrum Functionality</span>
       </h3>
-      <h2 class="font-['Noto_Serif_TC',serif]" data-aos="fade-zoom-in">
+      <h2 data-aos="fade-zoom-in">
         市政中軸<br class="block md:hidden" />
         串聯全方位機能<br />
         構築菁英家庭<br class="block md:hidden" />
         最從容的生活日常
       </h2>
     </div>
-    <div class="pic">
+    <!-- 圖片點擊 -->
+    <div class="pic" @click="openModal">
       <img
         data-aos="zoom-out"
-        src="./s6/pic.jpg"
+        src="./s6/map.jpg"
         alt="pic"
+        class="cursor-pointer"
       />
     </div>
+
+    <!-- modal -->
+        <fullview
+          v-if="showModal"
+          @close="closeModal"
+        />
   </article>
 </template>
 
@@ -27,10 +35,11 @@
 .s6 {
   width: 100%;
   padding: sizem(60) sizem(35);
+  position: relative;
   @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
-    padding: size(150) size(250);
+    padding: size(150) size(250) size(210) size(200);
     gap: size(90);
   }
 
@@ -41,7 +50,7 @@
     }
 
     h3 {
-      font-weight: 400;
+      font-weight: 500;
       color: #b8984a;
       text-shadow: 0 0 sizem(5.625) rgba(0, 0, 0, 0.65);
       font-size: sizem(16);
@@ -75,3 +84,19 @@
   }
 }
 </style>
+<script setup>
+import {computed, getCurrentInstance ,ref } from 'vue'
+  import fullview from '@/components/fullview3.vue';
+
+const showModal = ref(false)
+
+const openModal = () => {
+  showModal.value = true
+  document.body.style.overflow = 'hidden' // 防止背景滾動
+}
+
+const closeModal = () => {
+  showModal.value = false
+  document.body.style.overflow = ''
+}
+</script>

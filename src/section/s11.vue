@@ -1,6 +1,6 @@
 <template>
   <article class="s11">
-    <div class="txt font-['Noto_Serif_TC',serif]">
+    <div class="txt">
       <h2><span data-aos="fade-up">安家推手 幸福成家圓夢</span></h2>
       <img class="line" src="./s3/line.svg" alt="line">
       <p>
@@ -11,7 +11,7 @@
       <div class="pic_left">
         <div class="item">
           <img src="./s11/pic01-1.webp" alt="pic">
-          <p class="font-['Noto_Serif_TC',serif]">
+          <p>
             佳<br>
             展<br>
             大<br>
@@ -20,7 +20,7 @@
         </div>
         <div class="item">
           <img src="./s11/pic01-2.webp" alt="pic">
-          <p class="font-['Noto_Serif_TC',serif]">
+          <p>
             佳<br>
             展<br>
             大<br>
@@ -29,7 +29,7 @@
         </div>
         <div class="item">
           <img src="./s11/pic01-3.webp" alt="pic">
-          <p class="font-['Noto_Serif_TC',serif]">
+          <p>
             佳<br>
             展<br>
             大<br>
@@ -45,7 +45,7 @@
 
         <img class="light02" src="./s11/light02.webp" alt="light">
 
-        <p class="font-['Noto_Serif_TC',serif]">
+        <p>
           佳<br>
           展<br>
           安<br>
