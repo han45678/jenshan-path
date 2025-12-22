@@ -19,7 +19,7 @@ import 'swiper/css/pagination';
       <p class="hidden md:block" data-aos="fade-up" data-aos-delay="300">
         新光三越、大遠百雙百貨環伺，繁華與品味於步行之間流轉，日常的午後，是隨興的精品漫遊。<br />
         生活的每個瞬間，都是自然而然的精緻篇章。<br />
-        繁華近在咫尺，卻始終保有恬靜的生活韻度
+        繁華近在咫尺，卻始終保有恬靜的生活韻度。
       </p>
     </div>
     <div class="pic">
@@ -44,7 +44,7 @@ import 'swiper/css/pagination';
     <p class="block md:hidden" data-aos="fade-up" data-aos-delay="300">
       新光三越、大遠百雙百貨環伺，繁華與品味於步行之間流轉，日常的午後，是隨興的精品漫遊。<br />
       生活的每個瞬間，都是自然而然的精緻篇章。<br />
-      繁華近在咫尺，卻始終保有恬靜的生活韻度
+      繁華近在咫尺，卻始終保有恬靜的生活韻度。
     </p>
     <div class="slogan font-[Lexend]" data-aos="fade-up" data-aos-delay="300">
       A lifestyle where fashion meets light and shadow

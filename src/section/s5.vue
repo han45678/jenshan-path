@@ -156,7 +156,7 @@ const isMobile = computed(() => globals.$isMobile());
   .text {
     position: absolute;
     left: 0;
-    top: sizem(665);
+    top: sizem(555);
     width: 100%;
     color: #fff;
     text-align: right;
@@ -229,13 +229,16 @@ const isMobile = computed(() => globals.$isMobile());
   }
   .caption {
     position: absolute;
-    bottom: .5em;
+    top: sizem(500);
     right: .5em;
     font-size: sizem(12);
     color: #fff;
 
     @media screen and (min-width: 768px) {
       font-size: size(15);
+      top: auto;
+    bottom: .5em;
+    right: .5em;
     }
   }
 }

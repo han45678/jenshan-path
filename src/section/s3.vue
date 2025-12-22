@@ -30,8 +30,8 @@ const isMobile = computed(() => globals.$isMobile());
         <h3 class="font-[Lexend]" data-aos="fade-up">Civic Axis</h3>
         <h2 data-aos="fade-up" data-aos-delay="200">市政軸心 綠藝共生</h2>
         <p data-aos="fade-up" data-aos-delay="400">
-          台中七期歌劇院首排<br />
-          惠中路&市政北五路，七期最核心<br />
+          台中七期歌劇院首排。<br />
+          惠中路&市政北五路，七期最核心。<br />
           市政中心的理性脈動，與歌劇院、夏綠地公園的<br class="block md:hidden" />
           感性節奏，共譜城市生活的極致平衡。<br />
           一座以國際都會尺度構築的綠藝地標，讓每一次<br class="block md:hidden" />

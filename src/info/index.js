@@ -7,9 +7,9 @@ export default {
     googleSrc:
         'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d455.03672835810977!2d120.6441375!3d24.161426!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d3ce8fe5f99%3A0xe1df3b3795eba2f4!2z5LuB5bGx5bGx5LmL6YGTIOaOpeW-heacg-mkqA!5e0!3m2!1szh-TW!2stw!4v1766372730343!5m2!1szh-TW!2stw',
     googleLink: 'https://maps.app.goo.gl/uExfDRvmTqVsQMFf6',
-    phone: '08-8352-888',
-    fbLink: 'https://www.facebook.com/61578255539676/',
-    fbMessage: 'https://m.me/61578255539676/',
+    phone: '04-2251-7888',
+    fbLink: 'https://www.facebook.com/61584253671961/',
+    fbMessage: 'https://m.me/61584253671961/',
     caseName: caseName,
     houseInfos: [
       /*  
