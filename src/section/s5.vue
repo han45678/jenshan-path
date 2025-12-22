@@ -21,11 +21,12 @@ const isMobile = computed(() => globals.$isMobile());
     <img class="decorate" src="./s5/decorate.png" alt="decorate" />
 
     <div class="t" data-aos="fade-left">
-      <img src="./s5/t1.png" alt="t" />
+      <img src="./s5/t1.webp" alt="t" />
       <img class="light" src="./s5/light.png" alt="t" />
     </div>
 
     <img data-aos="fade-right" class="b" src="./s5/b.png" alt="b" />
+    <div class="caption">實景拍攝經電腦修圖</div>
   </article>
 </template>
 
@@ -226,6 +227,16 @@ const isMobile = computed(() => globals.$isMobile());
       }
     }
   }
+  .caption {
+    position: absolute;
+    bottom: .5em;
+    right: .5em;
+    font-size: sizem(12);
+    color: #fff;
 
+    @media screen and (min-width: 768px) {
+      font-size: size(15);
+    }
+  }
 }
 </style>

@@ -40,6 +40,7 @@
   }
 }
 
+/*
 .allbg {
   position: absolute;
   top: 0;
@@ -66,11 +67,11 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url("@/section/s1/bg.jpg") center top;
+      background: url("@/section/s1/bg1.jpg") center top;
       background-size: 200% auto;
       @media screen and (min-width: 768px) {
       top: -17%;
-        background-image: url('@/section/s1/bg.jpg');
+     //   background-image: url('@/section/s1/bg.jpg');
         background-size: 100% auto;
       }
     }
@@ -79,7 +80,7 @@
       }
   }
 
-}
+}*/
 
 .fade-enter-active,
 .fade-leave-active {
@@ -93,12 +94,31 @@
 
 .home {
   // background: linear-gradient(to bottom, #009e41 0%, #00a6e9 100%);
-  text-align: justify;position: relative;overflow: hidden;
-  
-        font-size: sizem(14);
-      @media screen and (min-width: 768px) {
-         font-size: size(15);
-      }
+  text-align: justify;
+  position: relative;
+  overflow: hidden;
+  font-size: sizem(14);
+
+  @media screen and (min-width: 768px) {
+    font-size: size(15);
+  }
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("@/section/s1/bg1.jpg") center top;
+      background-size: 200% auto;
+    // opacity: 0.05;
+    z-index: 0;
+  @media screen and (min-width: 768px) {
+    font-size: size(15);
+    background-size: 100% auto;
+  }
+  }
 }
 
 img {
@@ -130,6 +150,7 @@ const config = ref({
   showNav: false
 })
 onMounted(() => {
+  /*
   let ticking = false; // 確保在一幀內只處理一次滾動事件
   const allbg = document.querySelector(".allbg .bg");
 
@@ -149,6 +170,12 @@ onMounted(() => {
   // 綁定滾動事件
   window.addEventListener("scroll", handleScroll);
 
+
+  // 在組件卸載時清理事件
+  onUnmounted(() => {
+    window.removeEventListener("scroll", handleScroll);
+  });
+  */
   window.onload = function () {
     isLoading.value = false;
     AOS.init({
@@ -156,11 +183,6 @@ onMounted(() => {
       duration: 2000,
     });
   };
-
-  // 在組件卸載時清理事件
-  onUnmounted(() => {
-    window.removeEventListener("scroll", handleScroll);
-  });
 });
 
 

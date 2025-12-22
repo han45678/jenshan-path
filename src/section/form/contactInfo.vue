@@ -1,87 +1,45 @@
 <template>
   <div>
     <div class="contact-info-img"></div>
-    <div
-      class="contact-info mx-auto flex flex-col items-center justify-between"
-    >
-      <img
-        class="logo"
-        src="@/section/s1/logo.svg"
-        alt="logo"
-        data-aos="fade-up" v-if="isMobile"
-      />
+    <div class="contact-info mx-auto flex flex-col items-center justify-between">
+      <img class="logo" src="@/section/s1/logo.svg" alt="logo" data-aos="fade-up" v-if="isMobile" />
       <div class="flex justify-between w-full contact-item-box">
-        <div
-          class="flex contact-item justify-center items-center"
-          @click="
-            modalOpen = true;
-            modalType = 'phone';
-            onPhoneClick();
-          "
-          v-if="info.phone"
-        >
-          <img
-            src="./icon/phone.svg"
-            alt="電話"
-            srcset=""
-          />
+        <div class="flex contact-item justify-center items-center" @click="
+          modalOpen = true;
+        modalType = 'phone';
+        onPhoneClick();
+        " v-if="info.phone">
+          <img src="./icon/phone.svg" alt="電話" srcset="" />
           <div>{{ info.phone }}</div>
         </div>
-        <div
-          class="flex contact-item justify-center items-center"
-          @click="
-            modalOpen = true;
-            modalType = 'fb';
-            onMsgClick();
-          "
-        >
-          <img
-            src="./icon/messenger.svg"
-            alt="Facebook 諮詢"
-            srcset=""
-          />
+        <div class="flex contact-item justify-center items-center" @click="
+          modalOpen = true;
+        modalType = 'fb';
+        onMsgClick();
+        ">
+          <img src="./icon/messenger.svg" alt="Facebook 諮詢" srcset="" />
           <div>Facebook 諮詢</div>
         </div>
-        <div
-          class="flex contact-item justify-center items-center btfanpage"
-          @click="
-            open();
-            onFBClick();
-          "
-        >
-          <img
-            src="./icon/fb.svg"
-            alt="前往粉絲專頁"
-            srcset=""
-          />
+        <div class="flex contact-item justify-center items-center btfanpage" @click="
+          open();
+        onFBClick();
+        ">
+          <img src="./icon/fb.svg" alt="前往粉絲專頁" srcset="" />
           <div>前往粉絲專頁</div>
         </div>
       </div>
-      <div
-        class="flex justify-between w-full contact-item-box no-gap"
-        v-if="info.address"
-      >
-        <div
-          class="flex contact-item justify-center items-center address"
-        >
+      <div class="flex justify-between w-full contact-item-box no-gap" v-if="info.address">
+        <div class="flex contact-item justify-center items-center address">
           <div>
-            <span v-if="info.address1">{{ info.address1 }}：</span
-            >{{ info.address }}
+            <span v-if="info.address1">{{ info.address1 }}：</span>{{ info.address }}
           </div>
         </div>
-        <div
-          class="flex contact-item justify-center items-center googlemap"
-          @click="
-            modalOpen = true;
-            modalType = 'gmap';
-            onMapClick();
-          "
-        >
-          <img
-            src="./icon/gmap.svg"
-            alt="導航 GoogleMap"
-            srcset=""
-          />
+        <div class="flex contact-item justify-center items-center googlemap" @click="
+          modalOpen = true;
+        modalType = 'gmap';
+        onMapClick();
+        ">
+          <img src="./icon/gmap.svg" alt="導航 GoogleMap" srcset="" />
           <div>導航 GoogleMap</div>
         </div>
       </div>
@@ -89,116 +47,55 @@
   </div>
 
   <!-- Mobile contact info -->
-  <div
-    v-if="$isMobile()"
-    class="bg-white mo-contact-info flex justify-between w-full contact-item-box items-center"
-  >
-    <div
-      class="flex flex-1 flex-col contact-item justify-center items-center"
-      @click="
-        modalOpen = true;
-        modalType = 'phone';
-        onPhoneClick();
-      "
-      v-if="info.phone"
-    >
-      <img
-        src="//h35.banner.tw/img//form/phone.svg"
-        alt="撥打電話"
-        srcset=""
-      />
+  <div v-if="$isMobile()" class="bg-white mo-contact-info flex justify-between w-full contact-item-box items-center">
+    <div class="flex flex-1 flex-col contact-item justify-center items-center" @click="
+      modalOpen = true;
+    modalType = 'phone';
+    onPhoneClick();
+    " v-if="info.phone">
+      <img src="//h35.banner.tw/img//form/phone.svg" alt="撥打電話" srcset="" />
       <div>撥打電話</div>
     </div>
-    <div
-      class="flex flex-1 flex-col contact-item justify-center items-center"
-      @click="
-        modalOpen = true;
-        modalType = 'fb';
-        onMsgClick();
-      "
-    >
-      <img
-        src="//h35.banner.tw/img//form/messenger.svg"
-        alt="FB 諮詢"
-        srcset=""
-      />
+    <div class="flex flex-1 flex-col contact-item justify-center items-center" @click="
+      modalOpen = true;
+    modalType = 'fb';
+    onMsgClick();
+    ">
+      <img src="//h35.banner.tw/img//form/messenger.svg" alt="FB 諮詢" srcset="" />
       <div>FB 諮詢</div>
     </div>
-    <div
-      class="flex flex-1 flex-col contact-item justify-center items-center"
-      @click="scrollTo('.order')"
-    >
-      <img
-        src="//h35.banner.tw/img//form/pen.svg"
-        alt="預約賞屋"
-        srcset=""
-      />
+    <div class="flex flex-1 flex-col contact-item justify-center items-center" @click="scrollTo('.order')">
+      <img src="//h35.banner.tw/img//form/pen.svg" alt="預約賞屋" srcset="" />
       <div>預約賞屋</div>
     </div>
-    <div
-      class="flex flex-1 flex-col contact-item justify-center items-center"
-      @click="
-        modalOpen = true;
-        modalType = 'gmap';
-        onMapClick();
-      "
-      v-if="info.googleLink"
-    >
-      <img
-        src="//h35.banner.tw/img//form/gmap.svg"
-        alt="地圖導航"
-        srcset=""
-      />
+    <div class="flex flex-1 flex-col contact-item justify-center items-center" @click="
+      modalOpen = true;
+    modalType = 'gmap';
+    onMapClick();
+    " v-if="info.googleLink">
+      <img src="//h35.banner.tw/img//form/gmap.svg" alt="地圖導航" srcset="" />
       <div>地圖導航</div>
     </div>
   </div>
 
   <!-- Modal -->
-  <input
-    type="checkbox"
-    v-model="modalOpen"
-    id="contact-modal"
-    class="modal-toggle"
-  />
+  <input type="checkbox" v-model="modalOpen" id="contact-modal" class="modal-toggle" />
   <div class="modal -mt-20 md:-mt-72">
-    <div
-      class="modal-box py-12 relative flex flex-col items-center justify-center"
-    >
-      <label
-        for="contact-modal"
-        class="btn btn-sm btn-circle absolute right-4 top-4"
-        >✕</label
-      >
+    <div class="modal-box py-12 relative flex flex-col items-center justify-center">
+      <label for="contact-modal" class="btn btn-sm btn-circle absolute right-4 top-4">✕</label>
       <!-- icon -->
-      <img
-        class="h-12"
-        v-if="modalType == 'phone'"
-        src="//h35.banner.tw/img//form/phone.svg"
-        alt="phone"
-        srcset=""
-      />
-      <img
-        class="h-12"
-        v-else-if="modalType == 'fb'"
-        src="//h35.banner.tw/img//form/messenger.svg"
-        alt="fb"
-        srcset=""
-      />
-      <img
-        class="h-12"
-        v-else-if="modalType == 'gmap'"
-        src="//h35.banner.tw/img//form/gmap.svg"
-        alt="gmap"
-        srcset=""
-      />
+      <img class="h-12" v-if="modalType == 'phone'" src="//h35.banner.tw/img//form/phone.svg" alt="phone" srcset="" />
+      <img class="h-12" v-else-if="modalType == 'fb'" src="//h35.banner.tw/img//form/messenger.svg" alt="fb"
+        srcset="" />
+      <img class="h-12" v-else-if="modalType == 'gmap'" src="//h35.banner.tw/img//form/gmap.svg" alt="gmap" srcset="" />
       <!-- title -->
       <div class="text-xl mt-4 font-bold">
         {{
           modalType == 'phone'
             ? '賞屋專線'
             : modalType == 'fb'
-            ? 'Facebook Messenger'
-            : `${info.address2 ? info.address2 : '導航地址'}`
+              ? 'Facebook Messenger'
+              : `${info.address2 ? info.address2 : '導航地址'}`
         }}
       </div>
       <!-- content -->
@@ -207,49 +104,40 @@
           modalType == 'phone'
             ? info.phone
             : modalType == 'fb'
-            ? '線上諮詢'
-            : `${info.address}`
+              ? '線上諮詢'
+              : `${info.address}`
         }}
       </div>
       <!-- btn -->
-      <div
-        class="btn btn-lg bg-color1 border-0 text-white mt-12 hover:bg-color2"
-        @click="go()"
-        v-if="modalType != 'phone'"
-        v-bind:class="{
+      <div class="btn btn-lg bg-color1 border-0 text-white mt-12 hover:bg-color2" @click="go()"
+        v-if="modalType != 'phone'" v-bind:class="{
           hidden: modalType == 'phone' && !$isMobile(),
           btlead: modalType == 'fb',
           btsearch: modalType == 'gmap',
           btcontac: modalType == 'phone'
-        }"
-      >
+        }">
         {{
           modalType == 'phone'
             ? '撥打電話'
             : modalType == 'fb'
-            ? '立即諮詢'
-            : '開啟導航'
+              ? '立即諮詢'
+              : '開啟導航'
         }}
       </div>
       <!-- btn phone -->
-      <div
-        class="btn btn-lg bg-color1 border-0 text-white mt-12 hover:bg-color2"
-        @click="go()"
-        id="phonegtm"
-        v-else
+      <div class="btn btn-lg bg-color1 border-0 text-white mt-12 hover:bg-color2" @click="go()" id="phonegtm" v-else
         v-bind:class="{
           hidden: modalType == 'phone' && !$isMobile(),
           btlead: modalType == 'fb',
           btsearch: modalType == 'gmap',
           btcontac: modalType == 'phone'
-        }"
-      >
+        }">
         {{
           modalType == 'phone'
             ? '撥打電話'
             : modalType == 'fb'
-            ? '立即諮詢'
-            : '開啟導航'
+              ? '立即諮詢'
+              : '開啟導航'
         }}
       </div>
     </div>
@@ -260,10 +148,11 @@
 @import '@/assets/style/function.scss';
 
 .bg-color1 {
-  background-color: #04836e;
+  background-color: #b8984a;
 }
+
 .hover\:bg-color2:hover {
-  background-color: #01534f;
+  background-color: #8f6600;
 }
 
 .contact-info-img {
@@ -271,6 +160,7 @@
   height: 0;
   z-index: 52;
 }
+
 .contact-info {
   padding: size(55) size(0) size(55) size(0);
   width: size(1440);
@@ -312,8 +202,8 @@
       gap: 1em;
 
       &:hover {
-        background: #01534f;
-        border: 1px solid #01534f;
+        background: #8f6600;
+        border: 1px solid #8f6600;
         color: #fff;
       }
 
@@ -339,6 +229,7 @@
         //  max-width: 9999px;
         justify-content: center;
         border-radius: 0;
+
         &::before {
           content: '';
           position: absolute;
@@ -348,6 +239,7 @@
           left: calc(100% - 4em);
           z-index: -1;
         }
+
         div {
           text-indent: 0em;
           white-space: normal;
@@ -382,16 +274,15 @@
     }
   }
 }
+
 .modal-box {
   img {
-    filter: invert(28%) sepia(62%) saturate(4118%) hue-rotate(158deg)
-      brightness(89%) contrast(97%);
+    filter: invert(62%) sepia(55%) saturate(411%) hue-rotate(5deg) brightness(89%) contrast(86%);
   }
 }
 
 @media screen and (max-width: 768px) {
-  .contact-info-img {
-  }
+  .contact-info-img {}
 
   .mo-contact-info {
     z-index: 99;
@@ -419,6 +310,7 @@
         max-height: sizem(16.5);
         filter: brightness(0) invert(1);
       }
+
       &:first-child {
         border-left: 0;
       }
@@ -466,6 +358,7 @@
           left: calc(50% - 5em);
           transform: translateX(-50%);
         }
+
         div {
           text-indent: 2em;
         }
@@ -486,10 +379,11 @@
           }
         }
 
-        &.address + div {
+        &.address+div {
           //  border-radius: 0 0 sizem(0) sizem(0);
           //    border-radius: 0 0 .5em .5em;
         }
+
         &.googlemap {
           border-top-width: 0;
           border-left-width: 1px;
@@ -506,7 +400,7 @@
 
 <script setup>
 import info from '@/info';
-import { inject, ref ,getCurrentInstance,computed} from 'vue';
+import { inject, ref, getCurrentInstance, computed } from 'vue';
 const modalOpen = ref(false);
 const modalType = ref('');
 const globals = getCurrentInstance().appContext.config.globalProperties;

@@ -40,13 +40,13 @@
                 {{ city.label }}
               </option>
             </select></label>
-          <label class="row" v-if="requiredFields.area"><span>居住地區</span>
+         <!--  <label class="row" v-if="requiredFields.area"><span>居住地區</span>
             <select class="select w-full rounded-none" v-model="formData.area">
               <option value="" selected disabled>請選擇地區</option>
               <option v-for="area in areaList" :value="area.value" :key="area">
                 {{ area.label }}
               </option>
-            </select></label>
+            </select></label>  -->
 
           <!-- 需求房型 選項 -->
           <div class="row room_type"><span>需求房型</span>

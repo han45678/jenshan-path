@@ -1,12 +1,12 @@
 const caseName = '仁山山之道';
 export default {
     caseid: '91184de3-cfb1-4bcc-8ca2-d91ef7142c5b',
-    address:'xxxxxx',
+    address:'臺中市西屯區惠中路一段108號',
     address1: '接待中心', //按鈕區的--- 如空白會只呈現地址
     address2: '接待中心', //map點下確認的--- 如空白會顯示"導航地址"
     googleSrc:
-        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.4769292962806!2d120.18590139999999!3d23.0062545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e7723c77da6b9%3A0x948606cdea29a273!2z5L2z6YuQ6YOhIOaOpeW-heS4reW_gw!5e0!3m2!1szh-TW!2stw!4v1764692376149!5m2!1szh-TW!2stw',
-    googleLink: 'https://maps.app.goo.gl/',
+        'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d455.03672835810977!2d120.6441375!3d24.161426!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d3ce8fe5f99%3A0xe1df3b3795eba2f4!2z5LuB5bGx5bGx5LmL6YGTIOaOpeW-heacg-mkqA!5e0!3m2!1szh-TW!2stw!4v1766372730343!5m2!1szh-TW!2stw',
+    googleLink: 'https://maps.app.goo.gl/uExfDRvmTqVsQMFf6',
     phone: '08-8352-888',
     fbLink: 'https://www.facebook.com/61578255539676/',
     fbMessage: 'https://m.me/61578255539676/',

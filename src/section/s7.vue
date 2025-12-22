@@ -80,7 +80,7 @@ import 'swiper/css/pagination';
       </Swiper>
     </div>
     <div class="text">
-      <h3 class="hidden md:block font-['Gill Sans',serif]">
+      <h3 class="hidden md:block font-[Lexend]">
         <span>Prestigious Living</span>
       </h3>
       <h2 class="hidden md:block">

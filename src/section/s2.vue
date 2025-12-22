@@ -11,7 +11,7 @@
       <h2>
         七期之上<br />唯一可被收藏的座標
       </h2>
-      <p class="font-['Gill Sans',serif]">Collected Coordinate</p>
+      <p class="font-[Lexend]">Collected Coordinate</p>
 
       <img
         class="logo"
