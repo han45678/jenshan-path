@@ -1,24 +1,25 @@
 <template>
   <section class="s2 w-full relative">
-    <div class="bg">
+    <div class="bg hidden md:block">
       <img
         src="./s2/bg.webp"
         alt="bg"
         data-aos="zoom-out"
       />
     </div>
+      <fullview class="block md:hidden" />
     <div class="text">
       <h2>
         七期之上<br />唯一可被收藏的座標
       </h2>
       <p class="font-[Lexend]">Collected Coordinate</p>
 
-      <img
-        class="logo"
+    <!--   <img
+        class="logo hidden md:block"
         src="./s2/logo.svg"
         alt="logo"
         data-aos="fade-up"
-      />
+      /> -->
     </div>
   </section>
 </template>
@@ -28,7 +29,7 @@
 
 .s2 {
   width: 100%;
-  height: 100dvh;
+  height: sizem(800);
   position: relative;
   overflow: hidden;
   background: #036;
@@ -47,6 +48,19 @@
       height: 100%;
       object-fit: cover;
     }
+    @media screen and (max-width: 767px) {
+      
+    img {
+      position: relative;
+      left: -135%;
+      width: 250%;
+      height: 100%;
+      object-fit: cover;
+    }
+    }
+  }
+  .viewbox{
+    height: sizem(800);
   }
   .text {
     position: absolute;
@@ -100,4 +114,6 @@
 }
 </style>
 
-<script setup></script>
+<script setup>
+ import fullview from '@/components/fullview.vue';
+</script>
